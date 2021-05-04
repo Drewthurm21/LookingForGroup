@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/login">
           <LoginForm />
         </Route>
-        <Route exact path="/sign-up">
+        <Route exact path="/signup">
           <SignUpForm />
         </Route>
         <ProtectedRoute exact path="/users" >

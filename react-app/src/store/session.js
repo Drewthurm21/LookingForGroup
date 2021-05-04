@@ -40,7 +40,7 @@ export const login = (email, password) => async (dispatch) => {
   if (!user.errors) {
     return dispatch(setUser(user))
   }
-  return user.errors
+  return {};
 }
 
 export const logout = () => async (dispatch) => {
