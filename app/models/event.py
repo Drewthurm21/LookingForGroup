@@ -1,6 +1,7 @@
 from .db import db
 from sqlalchemy.orm import relationship
 
+
 class Event(db.Model):
     __tablename__ = 'events'
 
