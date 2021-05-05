@@ -6,7 +6,6 @@ const NavBar = () => {
 
   return (
     <nav>
-
       <div>
         <NavLink to='/' activeClassName='active'>
           Home
@@ -30,7 +29,6 @@ const NavBar = () => {
       <div>
         <LogoutButton />
       </div>
-
     </nav>
   );
 }

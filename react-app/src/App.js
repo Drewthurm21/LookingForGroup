@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
-import { authenticate } from "./store/session";
+import { authenticate } from './store/session';
+
+import Homepage from './components/Homepage/Homepage'
+import LoginForm from './components/auth/LoginForm';
+import SignUpForm from './components/auth/SignUpForm';
+import NavBar from './components/NavBar';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import UsersList from './components/UsersList';
+import User from './components/User';
+
+
 
 function App() {
   const dispatch = useDispatch();
@@ -28,20 +32,20 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route exact path="/login">
+        <Route exact path='/login'>
           <LoginForm />
         </Route>
-        <Route exact path="/signup">
+        <Route exact path='/signup'>
           <SignUpForm />
         </Route>
-        <ProtectedRoute exact path="/users" >
+        <ProtectedRoute exact path='/users' >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute exact path="/users/:userId" >
+        <ProtectedRoute exact path='/users/:userId' >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute exact path="/" >
-          <h1>My Home Page</h1>
+        <ProtectedRoute exact path='/' >
+          <Homepage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
