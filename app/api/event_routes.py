@@ -22,7 +22,7 @@ def event(id):
 
 # delete an event
 @event_routes.route('/<int:id>', methods=['DELETE'])
-def event(id):
+def drop_event(id):
     event = Event.query.get(id)
     db.session.delete(event)
     db.session.commit()
