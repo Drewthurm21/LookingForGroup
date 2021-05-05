@@ -11,3 +11,19 @@ def events():
     all_events = Event.query.all()
     events = [event.to_dict() for event in all_events]
     return jsonify(events)
+
+
+# return a single event
+@event_routes.route('/<int:id>')
+def event(id):
+    event = Event.query.get(id)
+    return event.to_dict()
+
+
+# delete an event
+@event_routes.route('/<int:id>', methods=['DELETE'])
+def event(id):
+    event = Event.query.get(id)
+    db.session.delete(event)
+    db.session.commit()
+    return event.to_dict()

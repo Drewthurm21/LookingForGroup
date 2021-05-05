@@ -23,6 +23,7 @@ class Event(db.Model):
             'category_id': self.category_id,
             'price': self.price,
             'host_id': self.host_id,
+            'comments': [comment.to_dict() for comment in self.comments]
         }
 
     host = relationship(
