@@ -17,7 +17,11 @@ const SingleEventPage = () => {
     <>
       <h1>{event.title}</h1>
       <img className='sep-main-img' src={event.image_url}></img>
-
+      <h1>{event.description}</h1>
+      <h3>{`$${event.price}`}</h3>
+      <div className='comments'>
+        {event.comments.map(comment => <div>{comment.content} </div>)}
+      </div>
     </>
   )
 }
