@@ -18,7 +18,7 @@ const Modal = () => {
   return mount && display && ReactDOM.createPortal(
     <div className='modal-background' onClick={onClose}>
       <div className='modal-content' onClick={e => e.stopPropagation()}>
-        <h1>HELLO</h1>
+        <h1>Welcome</h1>
         <Current />
       </div>
     </div>
