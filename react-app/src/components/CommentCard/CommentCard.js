@@ -3,11 +3,9 @@ import { useSelector } from 'react-redux'
 import './CommentCard.css'
 import EditCommentForm from './EditCommentForm'
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, user }) => {
   const commentDate = comment.created_at.slice(0, 16)
   const [editing, setEditing] = useState(false);
-
-  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     if (!editing) return;

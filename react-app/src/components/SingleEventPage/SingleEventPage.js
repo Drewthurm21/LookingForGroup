@@ -8,6 +8,7 @@ const SingleEventPage = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
   const event = useSelector(state => state.events.event)
+  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     dispatch(getOneEvent(Number(id)))
@@ -20,12 +21,13 @@ const SingleEventPage = () => {
       <img className='sep-main-img' src={event.image_url}></img>
       <h1>{event.description}</h1>
       <h3>{`$${event.price}`}</h3>
-      <div></div>
-      <div>
-        <iframe src="https://discord.com/widget?id=839942777001082941&theme=dark" width="850" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-      </div>
+      {event && (<div>
+        <iframe src={`https://discord.com/widget?id=839942777001082941&theme=dark`} width='350' height='500'
+          allowtransparency='true' frameborder='0' sandbox='allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts'></iframe>
+      </div>)}
+      {/* <div className='event-server'>{eventServer}</div> */}
       <div className='comments'>
-        {event.comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
+        {event.comments.map(comment => <CommentCard comment={comment} user={user} />)}
       </div>
     </>
   )

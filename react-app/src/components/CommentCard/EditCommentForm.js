@@ -9,11 +9,11 @@ const EditCommentForm = ({ id }) => {
 
   const editComment = async (e) => {
     e.preventDefault();
-    // await dispatch(editingReview({ content, reviewId }));
+    // write & call edit dispatch here
   };
 
   const deleteComment = async (id) => {
-    // await dispatch(deletingReview(reviewId))
+    // write & call delete dispatch here
   }
 
   return (

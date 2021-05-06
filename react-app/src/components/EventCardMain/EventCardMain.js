@@ -33,3 +33,4 @@ const EventCardMain = ({ event }) => {
 }
 
 export default EventCardMain
+
