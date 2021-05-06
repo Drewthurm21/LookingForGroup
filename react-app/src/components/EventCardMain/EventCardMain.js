@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './EventCardMain.css'
 
 const EventCardMain = ({ event }) => {
@@ -6,19 +7,31 @@ const EventCardMain = ({ event }) => {
 
   return (
     <div className='ecm-wrapper'>
-      <div className='ecm-title'>
-        {event.title}
+      <div className='ecm-inner-card'>
+        <NavLink className='event-card-link' to={`/events/${event.id}`} >
+          <div className='ecm-card-box'>
+            <div className='ecm-card-content'>
+              <h1 className='ecm-title'>
+                {event.title}
+              </h1>
+              <div className='ecm-main-img-wrap'>
+                <img className='ecm-main-img' src={event.image_url} />
+              </div>
+              <h4 className='ecm-description'>
+                {event.description}
+              </h4>
+              <NavLink to={`/events/${event.event_id}`} >
+                Check it out!
+            </NavLink>
+
+            </div>
+          </div>
+          <h4 className='ecm-price'>
+            {`$${event.price}`}
+          </h4>
+        </NavLink>
       </div>
-      <div className='ecm-main-img-wrap'>
-        <img className='ecm-main-img' src={event.image_url} />
-      </div>
-      <div className='ecm-description'>
-        {event.description}
-      </div>
-      <div className='ecm-price'>
-        {`$${event.price}`}
-      </div>
-    </div>
+    </div >
 
   )
 }
