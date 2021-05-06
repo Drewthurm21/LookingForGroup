@@ -20,10 +20,6 @@ const EventCardMain = ({ event }) => {
               <h4 className='ecm-description'>
                 {event.description}
               </h4>
-              <NavLink to={`/events/${event.event_id}`} >
-                Check it out!
-            </NavLink>
-
             </div>
           </div>
           <h4 className='ecm-price'>

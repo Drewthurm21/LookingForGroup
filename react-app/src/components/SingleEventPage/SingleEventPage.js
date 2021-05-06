@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOneEvent } from '../../store/events'
+import CommentCard from '../CommentCard/CommentCard'
 
 const SingleEventPage = () => {
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ const SingleEventPage = () => {
       <h1>{event.description}</h1>
       <h3>{`$${event.price}`}</h3>
       <div className='comments'>
-        {event.comments.map(comment => <div>{comment.content} </div>)}
+        {event.comments.map(comment => <CommentCard comment={comment} key={comment.id} />)}
       </div>
     </>
   )

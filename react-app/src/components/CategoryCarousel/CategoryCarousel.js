@@ -27,13 +27,13 @@ const CategoryCarousel = () => {
     setIndex4((index) => index === events.length - 1 ? 0 : index + 1)
   }
 
-  let currentCard;
+  let currentCards;
   if (events) {
-    currentCard = [
-      <EventCardMain event={events[index]} />,
-      <EventCardMain event={events[index2]} />,
-      <EventCardMain event={events[index3]} />,
-      <EventCardMain event={events[index4]} />
+    currentCards = [
+      <EventCardMain key={'o'} event={events[index]} />,
+      <EventCardMain key={'p'} event={events[index2]} />,
+      <EventCardMain key={'q'} event={events[index3]} />,
+      <EventCardMain key={'r'} event={events[index4]} />
     ]
 
   }
@@ -45,7 +45,7 @@ const CategoryCarousel = () => {
         <div>
           <div className='carousel-cards'>
             <div className='carousel-btn' onClick={prevCard}>{'<==='}</div>
-            {currentCard}
+            {currentCards}
             <div className='carousel-btn' onClick={nextCard}>{'===>'}</div>
           </div>
         </div>
