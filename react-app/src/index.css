@@ -1,6 +1,15 @@
 /* TODO Add site wide styles */
+
+
+body {
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
 .navbar {
   display:flex;
   flex-direction: row;
   justify-content: space-around;
+  background-color: lightgrey;
 }
