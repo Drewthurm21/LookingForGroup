@@ -74,14 +74,18 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-export const reducer = (state = { user: null }, action) => {
+export const reducer = (state = { user: null, loaded: false }, action) => {
   switch (action.type) {
     case SET_USER:
       return {
-        user: action.payload
+        user: action.payload,
+        loaded: true
       }
     case REMOVE_USER:
-      return { user: null }
+      return {
+        user: null,
+        loaded: true
+      }
     default:
       return state
   }

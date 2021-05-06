@@ -16,9 +16,29 @@ const Homepage = () => {
 
   return (
     <div className='homepage-wrapper'>
-      <h1>HOME PAGE MANNNNNN</h1>
-      <CategoryCarousel />
-      <CategoryCarousel />
+      <h1>Looking For Group</h1>
+      <div>
+        <h2>Apex Legends</h2>
+        <CategoryCarousel />
+        <h2>Call of Duty</h2>
+        <CategoryCarousel />
+        <h2>Battlefield</h2>
+        <CategoryCarousel />
+        <h2>Valorant</h2>
+        <CategoryCarousel />
+        <h2>Among Us</h2>
+        <CategoryCarousel />
+        <h2>Fall Guys</h2>
+        <CategoryCarousel />
+        <h2>Diablo III</h2>
+        <CategoryCarousel />
+        <h2>Monster Hunter</h2>
+        <CategoryCarousel />
+        <h2>Valheim</h2>
+        <CategoryCarousel />
+        <h2>Minecraft</h2>
+        <CategoryCarousel />
+      </div>
     </div>
   )
 }

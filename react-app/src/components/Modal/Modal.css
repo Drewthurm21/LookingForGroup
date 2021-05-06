@@ -1,0 +1,17 @@
+.modal-background {
+  position: absolute;
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  background-color: rgb(0,0,0,0.6);
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-content {
+  background-color: white;
+  height:50vw;
+  width: 40vw;
+}
