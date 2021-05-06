@@ -1,4 +1,20 @@
 .comment-wrapper {
   display:flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  margin: 8px;
+  padding: 8px;
+  width: 600px;
+  border: 1px solid rgb(30,30,38,.4);
+  border-radius: 6px;
+  font-size:larger;
   color:white;
+}
+
+.comment-wrapper:hover {
+  border: 1px solid rgba(38, 38, 47, 0.7);
+}
+
+.comment-content {
+  color: white;
 }
