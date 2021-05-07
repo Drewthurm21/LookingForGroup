@@ -14,6 +14,7 @@ class Event(db.Model):
     price = db.Column(db.Numeric(asdecimal=False), nullable=False)
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     server_id = db.Column(db.BigInteger)
+    channel_id = db.Column(db.BigInteger)
 
     def to_dict(self):
         return {

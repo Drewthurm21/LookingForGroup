@@ -11,7 +11,8 @@ def seed_events():
         category_id=1,
         price=5.99,
         host_id=1,
-        server_id=334131863423549450
+        server_id=334131863423549450,
+        channel_id=334131863423549450
     )
     db.session.add(event)
 
@@ -22,7 +23,8 @@ def seed_events():
         category_id=1,
         price=5.99,
         host_id=1,
-        server_id=839942777001082941
+        server_id=839942777001082941,
+        channel_id=839942777001082944
     )
     db.session.add(event)
 
@@ -33,6 +35,8 @@ def seed_events():
         category_id=1,
         price=5.99,
         host_id=1,
+        server_id=558777956181475369,
+        channel_id=558784885222014983
     )
     db.session.add(event)
 

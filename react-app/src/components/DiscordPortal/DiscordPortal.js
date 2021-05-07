@@ -1,10 +1,12 @@
 import * as React from 'react'
 import WidgetBot from '@widgetbot/react-embed'
 
-const DiscordPortal = () => (
+const DiscordPortal = ({ server_id, channel_id }) => (
+
   <WidgetBot
-    server="839942777001082941"
-    channel="839942777001082944"
+    className='widgetbot'
+    server={server_id}
+    channel={channel_id}
   />
 )
 
