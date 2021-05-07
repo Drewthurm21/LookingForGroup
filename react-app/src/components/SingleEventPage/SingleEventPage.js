@@ -7,6 +7,7 @@ import DiscordPortal from '../DiscordPortal/DiscordPortal'
 const SingleEventPage = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
+
   const event = useSelector(state => state.events.event)
   const user = useSelector(state => state.session.user)
 
