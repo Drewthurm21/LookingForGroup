@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import LoginForm from '../components/auth/LoginForm'
-import SignupForm from '../components/auth/SignUpForm'
+import LogoutButton from '../components/Forms/LogoutButton';
+import LoginForm from '../components/Forms/LoginForm'
+import SignupForm from '../components/Forms/SignUpForm'
 import { showModal, setCurrentModal } from '../store/modal'
 
 const NavBar = () => {
