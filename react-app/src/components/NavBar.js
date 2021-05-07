@@ -23,23 +23,25 @@ const NavBar = () => {
 
   return (
     <nav className='navbar'>
-      <div>
+      <div className='nav-btn'>
         <NavLink to='/' activeClassName='active'>
           HOME
-          </NavLink>
+        </NavLink>
       </div>
       <div>
-        <button onClick={showLogin}>
+        <div className='nav-btn' onClick={showLogin}>
           login
-       </button>
+       </div>
       </div>
       <div>
-        <button onClick={showSignup}>Signup</button>
+        <div className='nav-btn' onClick={showSignup}>
+          Signup
+        </div>
       </div>
-      <div>
+      <div className='nav-btn'>
         <NavLink to='/profile' activeClassName='active'>
           PROFILE
-          </NavLink>
+        </NavLink>
       </div>
       {user && <div>
         <LogoutButton />
