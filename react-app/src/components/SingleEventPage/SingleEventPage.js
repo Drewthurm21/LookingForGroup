@@ -16,7 +16,6 @@ const SingleEventPage = () => {
   }, [dispatch])
 
 
-
   return event && (
     <>
       <h1>{event.title}</h1>
