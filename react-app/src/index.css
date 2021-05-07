@@ -1,11 +1,13 @@
-/* TODO Add site wide styles */
-
 
 body {
   background: rgba(7,7,7,1);
   padding: 5px;
   margin: 5px;
+  /* filter: blur(5px); */
+  /* overflow: hidden; */
 }
+
+
 
 .navbar {
   height: 45px;

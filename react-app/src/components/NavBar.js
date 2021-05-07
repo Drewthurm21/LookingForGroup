@@ -1,13 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import LoginForm from '../components/auth/LoginForm'
-import SignupForm from '../components/auth/SignUpForm'
+import LogoutButton from '../components/Forms/LogoutButton';
+import LoginForm from '../components/Forms/LoginForm'
+import SignupForm from '../components/Forms/SignUpForm'
 import { showModal, setCurrentModal } from '../store/modal'
 
 const NavBar = () => {
   const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user)
 
   const showLogin = () => {
     console.log(LoginForm)
@@ -24,7 +25,7 @@ const NavBar = () => {
     <nav className='navbar'>
       <div>
         <NavLink to='/' activeClassName='active'>
-          Home
+          HOME
           </NavLink>
       </div>
       <div>
@@ -37,12 +38,12 @@ const NavBar = () => {
       </div>
       <div>
         <NavLink to='/profile' activeClassName='active'>
-          Users
+          PROFILE
           </NavLink>
       </div>
-      <div>
+      {user && <div>
         <LogoutButton />
-      </div>
+      </div>}
     </nav>
   );
 }

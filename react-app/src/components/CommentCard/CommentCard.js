@@ -33,8 +33,8 @@ const CommentCard = ({ comment, user }) => {
           <div className="comment-content">
             <p>{comment.content}</p>
           </div>
-          {comment.user_id === user.id && <button className='comment-btn' onClick={handleSubmit}>EDIT comment</button>}
-          {editing && comment.user_id === user.id ? (
+          {comment.user_id === user?.id && <button className='comment-btn' onClick={handleSubmit}>EDIT comment</button>}
+          {editing && comment.user_id === user?.id ? (
             <EditCommentForm id={comment.id} />
           ) : null}
         </div>
