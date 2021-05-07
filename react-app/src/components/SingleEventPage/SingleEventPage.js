@@ -9,10 +9,15 @@ import './SingleEventPage.css'
 const SingleEventPage = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
-
   const user = useSelector(state => state.session.user)
   const event = useSelector(state => state.events.event)
 
+
+  if (event) {
+
+    console.log(event.server_id)
+    console.log(event.channel_id)
+  }
   useEffect(() => {
     dispatch(getOneEvent(Number(id)))
   }, [dispatch])
@@ -23,8 +28,8 @@ const SingleEventPage = () => {
       <h1>{event.title}</h1>
       <div className='img-discord'>
         <img className='sep-main-img' alt='Event-Photo' src={event.image_url}></img>
-        <div>
-          <DiscordPortal server_id={event.server_id ? event.server_id : "839942777001082941"} />
+        <div className='discord-portal'>
+          <DiscordPortal />
         </div>
       </div>
       {event && (<div>

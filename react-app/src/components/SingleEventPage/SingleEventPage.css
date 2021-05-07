@@ -7,3 +7,8 @@
 .img-discord {
   display: flex;
 }
+
+.widgetbot {
+  height: 800px;
+  width: 560px;
+}
