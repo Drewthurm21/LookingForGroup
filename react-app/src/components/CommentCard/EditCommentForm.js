@@ -1,33 +1,36 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { editComment, deleteComment } from '../../store/comments'
 
-
-
-const EditCommentForm = ({ id }) => {
+const EditCommentForm = ({ comment }) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
 
-  const editComment = async (e) => {
+  const editCom = async (e) => {
     e.preventDefault();
-    // write & call edit dispatch here
+    dispatch(editComment(content, comment.id))
   };
 
-  const deleteComment = async (id) => {
-    // write & call delete dispatch here
+  const deleteCom = async () => {
+
+    dispatch(deleteComment(comment.id))
   }
 
   return (
     <div className="ecf-wrapper">
       <div className="ecf-container">
-        <form onSubmit={editComment}>
+        <form className='form'>
           <div className="form-inputs">
             <label>Edit Comment: </label>
-            <input type="text" onChange={(e) => { setContent(e.target.value); }} value={content}></input>
+            <textarea className='textbox' type="text" onChange={(e) => { setContent(e.target.value); }} value={content}></textarea>
           </div>
-          <div class="button-div"><button type="submit">submit</button>
+          <div className="button-div">
+            <div onClick={editCom} type="submit">submit</div>
+          </div>
+          <div className="button-div">
+            <div onClick={() => deleteCom(comment.id)}>Delete</div>
           </div>
         </form>
-        <div class="button-div"><button onClick={() => deleteComment(id)}>Delete</button></div>
       </div>
     </div>
   );

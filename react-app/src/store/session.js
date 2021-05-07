@@ -44,9 +44,9 @@ export const login = (email, password) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-  const response = await fetch("/api/auth/logout", {
+  const response = await fetch('/api/auth/logout', {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     }
   });
   const user = await response.json();
@@ -57,10 +57,10 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (username, email, password) => async (dispatch) => {
-  const response = await fetch("/api/auth/signup", {
-    method: "POST",
+  const response = await fetch('/api/auth/signup', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       username,

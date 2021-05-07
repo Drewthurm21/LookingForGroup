@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, Event, Comment
+from app.models import db, User, Event, Comment
 import datetime
 
 comment_routes = Blueprint('comments', __name__)
@@ -25,14 +25,29 @@ def get_comment(id):
 @comment_routes.route('/', methods=['POST'])
 @login_required
 def post_comment():
-    content = request.json(['content'])
-    event_id = request.json(['event_id'])
+    content = request.json['content']
+    event_id = request.json['event_id']
     comment = Comment(
         user_id=current_user.id,
         event_id=event_id,
         content=content,
         created_at=datetime.now()
     )
+    db.session.add(comment)
+    db.session.commit()
+    return comment.to_dict()
+
+
+# edit a comment
+@comment_routes.route('/<int:id>', methods=['PATCH'])
+@login_required
+def edit_comment(id):
+    comment = Comment.query.get(id)
+    comment.content = request.json['content']
+    comment.updated_at = datetime.datetime.now()
+    db.session.add(comment)
+    db.session.commit()
+    return comment.to_dict()
 
 
 # delete a comment
