@@ -27,21 +27,15 @@ function App() {
       <NavBar />
       <Modal />
       <Switch>
-        <Route exact path='/login'>
-          <LoginForm />
-        </Route>
-        <Route exact path='/signup'>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute exact path='/profile' >
-          <User />
-        </ProtectedRoute>
         <Route exact path='/' >
           <Homepage />
         </Route>
         <Route exact path='/events/:id' >
           <SingleEventPage />
         </Route>
+        <ProtectedRoute exact path='/profile' >
+          <User />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

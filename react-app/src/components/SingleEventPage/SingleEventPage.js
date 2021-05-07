@@ -8,12 +8,13 @@ const SingleEventPage = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
 
-  const event = useSelector(state => state.events.event)
   const user = useSelector(state => state.session.user)
+  const event = useSelector(state => state.events.event)
 
   useEffect(() => {
     dispatch(getOneEvent(Number(id)))
   }, [dispatch])
+
 
 
   return event && (
@@ -28,7 +29,7 @@ const SingleEventPage = () => {
       </div>)}
       {/* <div className='event-server'>{eventServer}</div> */}
       <div className='comments'>
-        {event.comments.map(comment => <CommentCard comment={comment} user={user} />)}
+        {event.comments.map(comment => <CommentCard comment={comment} />)}
       </div>
     </>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { hideModal } from '../../store/modal'
-import { login } from '../../store/session'
 import './Modal.css'
 
 
@@ -22,7 +21,6 @@ const Modal = () => {
   return !user && mount && display && ReactDOM.createPortal(
     <div className='modal-background' onClick={onClose}>
       <div className='modal-content' onClick={e => e.stopPropagation()}>
-        <h1>Welcome</h1>
         <Current />
       </div>
     </div>

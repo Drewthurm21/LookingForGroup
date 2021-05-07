@@ -16,11 +16,11 @@
   height: 420px;
   margin: 15px;
   border-radius: 12px;
-  /* box-shadow: 
+  box-shadow: 
     inset 5px 5px 15px rgba(0,0,0,0.2),
     inset -5px -5px 15px rgba(255,255,255,0.1),
           5px 5px 15px rgba(0,0,0,0.2),
-          -5px -5px 15px rgba(255,255,255,0.1); */
+          -5px -5px 15px rgba(255,255,255,0.1);
 }
 
 .ecm-wrapper .ecm-inner-card .ecm-card-box {
@@ -40,7 +40,7 @@
 }
 
 .ecm-wrapper .ecm-inner-card .ecm-card-box:hover {
-  transform:translateY(-40px);
+  transform:translateY(-25px);
   background: rgb(42,43,47, .5);
   box-shadow: 0 40px 70px rgba(0,0,0,0.5);
 }
