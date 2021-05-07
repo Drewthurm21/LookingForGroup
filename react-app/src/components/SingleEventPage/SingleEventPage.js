@@ -7,6 +7,7 @@ import CommentCard from '../CommentCard/CommentCard'
 const SingleEventPage = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
+
   const event = useSelector(state => state.events.event)
 
   useEffect(() => {
