@@ -29,7 +29,7 @@ const SingleEventPage = () => {
       </div>)}
       {/* <div className='event-server'>{eventServer}</div> */}
       <div className='comments'>
-        {event.comments.map(comment => <CommentCard comment={comment} />)}
+        {event.comments.map(comment => <CommentCard comment={comment} user={user} />)}
       </div>
     </>
   )
