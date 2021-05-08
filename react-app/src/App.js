@@ -5,11 +5,8 @@ import { authenticate } from './store/session';
 
 
 import Homepage from './components/Homepage/Homepage'
-import LoginForm from './components/Forms/LoginForm';
-import SignUpForm from './components/Forms/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import User from './components/User';
 import Modal from './components/Modal/Modal'
 import SingleEventPage from './components/SingleEventPage/SingleEventPage'

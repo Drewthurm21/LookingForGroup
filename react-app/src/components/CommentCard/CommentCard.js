@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import './CommentCard.css'
 import EditCommentForm from './EditCommentForm'
 
@@ -33,9 +32,10 @@ const CommentCard = ({ comment, user }) => {
           <div className="comment-content">
             <p>{comment.content}</p>
           </div>
-          {comment.user_id === user?.id && <button className='comment-btn' onClick={handleSubmit}>EDIT comment</button>}
+          {comment.user_id === user?.id &&
+            <div className='edit-btn' onClick={handleSubmit}>[ EDIT ]</div>}
           {editing && comment.user_id === user?.id ? (
-            <EditCommentForm id={comment.id} />
+            <EditCommentForm comment={comment} />
           ) : null}
         </div>
       }

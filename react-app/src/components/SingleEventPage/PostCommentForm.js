@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editComment, deleteComment } from '../../store/comments'
+import { postComment } from '../../store/comments'
 
-const EditCommentForm = ({ comment }) => {
+const PostCommentForm = ({ event }) => {
   const dispatch = useDispatch();
+
+
   const [content, setContent] = useState("");
 
-  const editCom = async (e) => {
+
+  const postCom = async (e) => {
     e.preventDefault();
-    dispatch(editComment(content, comment.id))
+    // console.log(content)
+    dispatch(postComment(content, event.id))
   };
 
-  const deleteCom = async () => {
-
-    dispatch(deleteComment(comment.id))
-  }
 
   return (
     <div className="ecf-wrapper">
@@ -25,10 +25,7 @@ const EditCommentForm = ({ comment }) => {
             <textarea className='textbox' type="text" onChange={(e) => { setContent(e.target.value); }} value={content}></textarea>
           </div>
           <div className="button-div">
-            <div onClick={editCom} type="submit">submit</div>
-          </div>
-          <div className="button-div">
-            <div onClick={() => deleteCom(comment.id)}>Delete</div>
+            <div onClick={postCom} type="submit">submit</div>
           </div>
         </form>
       </div>
@@ -36,4 +33,4 @@ const EditCommentForm = ({ comment }) => {
   );
 };
 
-export default EditCommentForm;
+export default PostCommentForm;
