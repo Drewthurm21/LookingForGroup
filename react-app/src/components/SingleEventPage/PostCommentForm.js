@@ -11,23 +11,22 @@ const PostCommentForm = ({ event }) => {
 
   const postCom = async (e) => {
     e.preventDefault();
-    // console.log(content)
     dispatch(postComment(content, event.id))
-
   };
 
 
   return (
-
-    <form className='post-comment-form'>
-      <p>Edit Comment: </p>
-      <div className="form-inputs">
-        <textarea className='textbox' type="text" onChange={(e) => { setContent(e.target.value); }} value={content}></textarea>
-      </div>
-      <div className="button-div">
-        <div onClick={postCom} type="submit">submit</div>
-      </div>
-    </form>
+    <div className='comment-form-wrapper'>
+      <form className='post-comment-form'>
+        <p>Edit Comment: </p>
+        <div className="form-inputs">
+          <textarea className='textbox' type="text" onChange={(e) => { setContent(e.target.value); }} value={content}></textarea>
+        </div>
+        <div className="button-div">
+          <div onClick={postCom} id="submit-comment">submit</div>
+        </div>
+      </form>
+    </div>
   );
 };
 

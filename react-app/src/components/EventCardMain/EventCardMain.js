@@ -22,9 +22,7 @@ const EventCardMain = ({ event }) => {
               </h4>
             </div>
           </div>
-          <h4 className='ecm-price'>
-            {`$${event.price}`}
-          </h4>
+          <h4 className='ecm-price'>{`$${event.price}`}</h4>
         </NavLink>
       </div>
     </div >

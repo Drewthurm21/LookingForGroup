@@ -47,6 +47,8 @@ def seed_events():
         category_id=1,
         price=5.99,
         host_id=1,
+        server_id='840530998482960384',
+        channel_id='840530998482960387'
     )
     db.session.add(event)
     event = Event(

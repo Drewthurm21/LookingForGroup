@@ -8,7 +8,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%
+  width: 100%;
+  max-width: 700px;
 }
 
 .single-event-img {
@@ -29,11 +30,24 @@ max-height: 700px
 }
 
 .comments-section {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   overflow-y: Scroll;
   width: 100%;
+
 }
 .comments-section::-webkit-scrollbar {
   display: none;
+}
+
+.post-comment-btn {
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  width: 200px;
+  height:24px;
+  text-align: center;
 }
 
 .post-comment-form {
