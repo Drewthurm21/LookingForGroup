@@ -22,8 +22,37 @@
   flex-direction:row;
 }
 
+.comms-div {
+display:flex;
+flex-direction: row;
+max-height: 700px
+}
+
+.comments-section {
+  overflow-y: Scroll;
+  width: 100%;
+}
+.comments-section::-webkit-scrollbar {
+  display: none;
+}
+
+.post-comment-form {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 12px;
+  color: white;
+}
+
+textarea {
+  height:100px;
+  width:405px;
+}
+
 .widgetbot {
-  height: 800px;
-  width: 65vw;
+  height: 680px;
+  width: 1024px;
 }
 

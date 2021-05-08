@@ -13,24 +13,39 @@ const SingleEventPage = () => {
   const user = useSelector(state => state.session.user)
   const event = useSelector(state => state.events.event)
   const [posting, setPosting] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
 
   useEffect(() => {
     if (!posting) return
-
     const closeShown = () => {
       setPosting(false)
     }
-
+    // document.getElementById
     document.addEventListener("submit", closeShown);
     return () => document.removeEventListener("submit", closeShown)
   }, [posting])
 
   useEffect(() => {
-    dispatch(getOneEvent(Number(id)))
+    (async () => {
+      const thisEvent = await dispatch(getOneEvent(Number(id)))
+      if (thisEvent) {
+        setLoaded(true)
+      } else {
+
+      }
+
+    })()
+
   }, [dispatch])
 
+  const handlePost = () => {
+    setPosting(true)
+  }
 
-  return event && (
+  if (!loaded) return null
+
+  return (
     <>
       <div className='event-page-wrapper'>
 
@@ -39,19 +54,21 @@ const SingleEventPage = () => {
           <img className='single-event-img' alt='Event-Photo' src={event.image_url}></img>
           <div className='sidebar-wrapper'>
             <h1>SIDEBAR</h1>
+            <h3>{event.description}</h3>
+            <h3>{`$${event.price}`}</h3>
           </div>
         </div>
-        <h3>{event.description}</h3>
-        <h3>{`$${event.price}`}</h3>
-        <div className='discord-portal'>
-          {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
-        </div>
-        <div className='post-comment-wrapper'>
-          <div className='post-comment-btn'>COMMENT</div>
-          {user && <PostCommentForm event={event} />}
-        </div>
-        <div className='comments'>
-          {event.comments.map(comment => <CommentCard comment={comment} user={user} key={comment.id} />).reverse()}
+        <div className='comms-div'>
+          <div className='discord-portal'>
+            {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
+          </div>
+          <div className='comments-section'>
+            {user && <div className='post-comment-btn' onClick={handlePost} >POST A COMMENT</div>}
+            {user && posting && <PostCommentForm className='post-comment-form' event={event} />}
+            <div className='comments'>
+              {event.comments.map(comment => <CommentCard comment={comment} user={user} key={comment.id} />).reverse()}
+            </div>
+          </div>
         </div>
       </div>
     </>

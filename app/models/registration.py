@@ -1,6 +1,7 @@
 from .db import db
 from sqlalchemy.orm import relationship
 
+
 class Registration(db.Model):
     __tablename__ = 'registrations'
 
