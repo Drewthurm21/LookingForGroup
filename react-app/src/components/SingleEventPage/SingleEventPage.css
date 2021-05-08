@@ -1,14 +1,29 @@
-* {
-  color:white;
-  padding: 5px;
-  margin: 5px;
+.event-page-wrapper {
+  padding: 8px;
+  margin:12px;
 }
 
-.img-discord {
+.sidebar-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%
+}
+
+.single-event-img {
+  height:640px;
+  width:1024px;
+}
+
+.image-sidebar {
   display: flex;
+  color: white;
+  flex-direction:row;
 }
 
 .widgetbot {
   height: 800px;
-  width: 560px;
+  width: 65vw;
 }
+

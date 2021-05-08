@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postComment } from '../../store/comments'
 
-const PostCommentForm = ({ comment }) => {
+const PostCommentForm = ({ event }) => {
   const dispatch = useDispatch();
+
+
   const [content, setContent] = useState("");
+
 
   const postCom = async (e) => {
     e.preventDefault();
-    dispatch(editComment(content, comment.id))
+    // console.log(content)
+    dispatch(postComment(content, event.id))
   };
 
 
