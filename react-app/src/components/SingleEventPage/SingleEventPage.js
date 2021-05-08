@@ -13,27 +13,39 @@ const SingleEventPage = () => {
   const user = useSelector(state => state.session.user)
   const event = useSelector(state => state.events.event)
   const [posting, setPosting] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
 
   useEffect(() => {
     if (!posting) return
-
     const closeShown = () => {
       setPosting(false)
     }
-
+    // document.getElementById
     document.addEventListener("submit", closeShown);
     return () => document.removeEventListener("submit", closeShown)
   }, [posting])
 
   useEffect(() => {
-    dispatch(getOneEvent(Number(id)))
+    (async () => {
+      const thisEvent = await dispatch(getOneEvent(Number(id)))
+      if (thisEvent) {
+        setLoaded(true)
+      } else {
+
+      }
+
+    })()
+
   }, [dispatch])
 
   const handlePost = () => {
     setPosting(true)
   }
 
-  return event && (
+  if (!loaded) return null
+
+  return (
     <>
       <div className='event-page-wrapper'>
 
