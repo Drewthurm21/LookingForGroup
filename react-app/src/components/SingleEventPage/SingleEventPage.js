@@ -65,11 +65,14 @@ const SingleEventPage = () => {
             <br></br>
             <h3>{`$${event.price}`}</h3>
             <br></br>
-            <h3 className='registration-btn' onClick={buyTickets} >{event.price > 0 ? `Buy Tickets!` : `Register Now!`}</h3>
+            {user && user.registrations.includes(event.id) && <h3>You're all set!</h3>}
+            {user && !user.registrations.includes(event.id) && <h3 className='registration-btn'
+              onClick={buyTickets} >{event.price > 0 ? `Buy Tickets!` : `Register Now!`}</h3>}
           </div>
         </div>
         <div className='comms-div'>
           <div className='discord-portal'>
+
             {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
           </div>
           <div className='comments-section'>

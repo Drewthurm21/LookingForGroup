@@ -10,6 +10,9 @@ class Registration(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey(
         'events.id'), nullable=False)
 
+    def get_event(self):
+        return self.event_id
+
     def to_dict(self):
         return {
             'id': self.id,

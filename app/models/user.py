@@ -34,7 +34,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'registrations': [reg.get_event() for reg in self.registrations]
         }
 
     avatars = relationship('Avatar', back_populates='users')

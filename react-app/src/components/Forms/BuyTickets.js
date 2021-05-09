@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { hideModal } from '../../store/modal'
+import { authenticate } from '../../store/session'
 
 const BuyTickets = () => {
   const dispatch = useDispatch()
@@ -8,8 +9,9 @@ const BuyTickets = () => {
   const [count, setCount] = useState(1)
   const total = (count * event.price)
 
-  const confirmPurchase = () => {
-    console.log('confirm!')
+  const confirmPurchase = async () => {
+    await fetch(`/api/registrations/add/${event.id}`)
+    dispatch(authenticate())
     dispatch(hideModal())
   }
 
@@ -34,7 +36,7 @@ const BuyTickets = () => {
 
       <div className='tickets-selector'>
         <div className='tickets-title'>How many tickets would you like?</div>
-        <div>{`$${total}`}</div>
+        <div>{`$${total.toFixed(2)}`}</div>
         <div className='select-tickets'>
           <div className='del-ticket' onClick={delTicket}>--</div>
           <div className='ticket-count'>{count}</div>
