@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User, Event, Registration, Comment
+from flask import Blueprint, jsonify, request
+from flask_login import login_required, current_user
+from app.models import db, User, Event, Registration, Comment
 
 registration_routes = Blueprint('registrations', __name__)
 
@@ -28,3 +28,16 @@ def get_user_regs(id):
     user_registrations = Registration.query.filter_by(user_id=id).all()
     user_regs = [reg.to_dict() for reg in user_registrations]
     return jsonify(user_regs)
+
+
+# register a user for an event
+@registration_routes.route('/add/<int:id>')
+@login_required
+def register_user(id):
+    registration = Registration(
+        user_id=current_user.id,
+        event_id=id,
+    )
+    db.session.add(registration)
+    db.session.commit()
+    return registration.to_dict()

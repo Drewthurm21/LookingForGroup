@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
 import { login } from "../../store/session";
+import { hideModal } from '../../store/modal'
+import { useDispatch, useSelector } from 'react-redux'
+
 import './Forms.css'
 
 const LoginForm = () => {
@@ -19,6 +21,7 @@ const LoginForm = () => {
     if (data.errors) {
       setErrors(data.errors);
     }
+    dispatch(hideModal())
   };
 
   const updateEmail = (e) => {

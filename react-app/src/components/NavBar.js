@@ -28,16 +28,19 @@ const NavBar = () => {
           HOME
         </NavLink>
       </div>
-      <div>
-        <div className='nav-btn' onClick={showLogin}>
-          login
+      {!user &&
+        <>
+          <div>
+            <div className='nav-btn' onClick={showLogin}>
+              login
        </div>
-      </div>
-      <div>
-        <div className='nav-btn' onClick={showSignup}>
-          Signup
+          </div>
+          <div>
+            <div className='nav-btn' onClick={showSignup}>
+              Signup
         </div>
-      </div>
+          </div>
+        </>}
       <div className='nav-btn'>
         <NavLink to='/profile' activeClassName='active'>
           PROFILE

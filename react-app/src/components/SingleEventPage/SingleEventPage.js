@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Redirect, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOneEvent } from '../../store/events'
+import { showModal, setCurrentModal } from '../../store/modal'
+import BuyTickets from '../Forms/BuyTickets'
 import CommentCard from '../CommentCard/CommentCard'
 import DiscordPortal from '../DiscordPortal/DiscordPortal'
 import PostCommentForm from './PostCommentForm'
@@ -18,12 +20,12 @@ const SingleEventPage = () => {
 
   useEffect(() => {
     if (!posting) return
-    const closeShown = () => {
+    const closePost = () => {
       setPosting(false)
     }
-    // document.getElementById
-    document.addEventListener("submit", closeShown);
-    return () => document.removeEventListener("submit", closeShown)
+    const btn = document.getElementById("submit-comment")
+    btn.addEventListener("click", closePost);
+    return () => document.removeEventListener("click", closePost)
   }, [posting])
 
   useEffect(() => {
@@ -32,9 +34,8 @@ const SingleEventPage = () => {
       if (thisEvent) {
         setLoaded(true)
       } else {
-
+        return <Redirect to='/' />
       }
-
     })()
 
   }, [dispatch])
@@ -43,27 +44,42 @@ const SingleEventPage = () => {
     setPosting(true)
   }
 
+  const buyTickets = () => {
+    dispatch(setCurrentModal(BuyTickets))
+    dispatch(showModal())
+  }
+
   if (!loaded) return null
 
   return (
     <>
       <div className='event-page-wrapper'>
 
-        <h1>{event.title}</h1>
+        <h1>WELCOME</h1>
         <div className='image-sidebar'>
           <img className='single-event-img' alt='Event-Photo' src={event.image_url}></img>
           <div className='sidebar-wrapper'>
-            <h1>SIDEBAR</h1>
+            <h1>{event.title}</h1>
+            <br></br>
             <h3>{event.description}</h3>
+            <br></br>
             <h3>{`$${event.price}`}</h3>
+            <br></br>
+            {user && user.registrations.includes(event.id) && <h3>You're all set!</h3>}
+            {user && !user.registrations.includes(event.id) && <h3 className='registration-btn'
+              onClick={buyTickets} >{event.price > 0 ? `Buy Tickets!` : `Register Now!`}</h3>}
           </div>
         </div>
         <div className='comms-div'>
           <div className='discord-portal'>
+
             {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
           </div>
           <div className='comments-section'>
-            {user && <div className='post-comment-btn' onClick={handlePost} >POST A COMMENT</div>}
+            {user &&
+              <div className='post-comment-btn' onClick={handlePost} >
+                {!posting && <div>POST A COMMENT</div>}
+              </div>}
             {user && posting && <PostCommentForm className='post-comment-form' event={event} />}
             <div className='comments'>
               {event.comments.map(comment => <CommentCard comment={comment} user={user} key={comment.id} />).reverse()}
