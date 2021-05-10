@@ -15,7 +15,8 @@ const Homepage = () => {
   return (
     <div className='homepage-wrapper'>
       <h1>Looking For Group</h1>
-      <div>
+      <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/main_logo.PNG?raw=true' alt='logo'></img>
+      <div className='carousels-wrapper'>
         <h2 className='crsl-category'>Apex Legends</h2>
         <CategoryCarousel />
         <h2 className='crsl-category'>Call of Duty</h2>
