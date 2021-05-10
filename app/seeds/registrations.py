@@ -11,7 +11,6 @@ def seed_registrations():
     db.session.add(registration)
     registration = Registration(user_id='5', event_id='5')
     db.session.add(registration)
-
     registration = Registration(user_id='2', event_id='3')
     db.session.add(registration)
     registration = Registration(user_id='3', event_id='4')
@@ -20,7 +19,6 @@ def seed_registrations():
     db.session.add(registration)
     registration = Registration(user_id='5', event_id='1')
     db.session.add(registration)
-
     registration = Registration(user_id='2', event_id='4')
     db.session.add(registration)
     registration = Registration(user_id='3', event_id='5')
@@ -29,7 +27,6 @@ def seed_registrations():
     db.session.add(registration)
     registration = Registration(user_id='5', event_id='2')
     db.session.add(registration)
-
     registration = Registration(user_id='2', event_id='5')
     db.session.add(registration)
     registration = Registration(user_id='3', event_id='1')

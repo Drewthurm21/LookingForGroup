@@ -10,7 +10,6 @@ const PostCommentForm = ({ event }) => {
 
 
   const postCom = async (e) => {
-    e.preventDefault();
     dispatch(postComment(content, event.id))
   };
 
