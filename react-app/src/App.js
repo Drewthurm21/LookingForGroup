@@ -5,7 +5,7 @@ import { authenticate } from './store/session';
 
 
 import Homepage from './components/Homepage/Homepage'
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import Modal from './components/Modal/Modal'
