@@ -1,17 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../components/Forms/LogoutButton';
-import LoginForm from '../components/Forms/LoginForm'
-import SignupForm from '../components/Forms/SignUpForm'
-import { showModal, setCurrentModal } from '../store/modal'
+import LogoutButton from '../Forms/LogoutButton';
+import LoginForm from '../Forms/LoginForm'
+import SignupForm from '../Forms/SignUpForm'
+import { showModal, setCurrentModal } from '../../store/modal'
 
 const NavBar = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
 
   const showLogin = () => {
-    console.log(LoginForm)
     dispatch(setCurrentModal(LoginForm))
     dispatch(showModal())
   }
