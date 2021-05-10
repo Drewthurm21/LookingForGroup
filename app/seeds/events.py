@@ -1,6 +1,6 @@
 from app.models import db, Event
 from faker import Faker
-
+import random
 # Adds a demo user, you can add other users here if you want
 
 faker = Faker()
@@ -75,7 +75,7 @@ def seed_events():
         event = Event(
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
-            image_url=faker.image_url(width=1080, height=1350),
+            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
             category_id=faker.pyint(min_value=1, max_value=15),
             price=faker.pyint(min_value=1, max_value=150),
             host_id=faker.pyint(min_value=1, max_value=5),
@@ -87,7 +87,7 @@ def seed_events():
         event2 = Event(
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
-            image_url=faker.image_url(width=1280, height=720),
+            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
             category_id=faker.pyint(min_value=1, max_value=15),
             price=faker.pyint(min_value=1, max_value=150),
             host_id=faker.pyint(min_value=1, max_value=5),
@@ -99,7 +99,7 @@ def seed_events():
         event3 = Event(
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
-            image_url=faker.image_url(width=1080, height=1080),
+            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
             category_id=faker.pyint(min_value=1, max_value=15),
             price=faker.pyint(min_value=1, max_value=150),
             host_id=faker.pyint(min_value=1, max_value=5),

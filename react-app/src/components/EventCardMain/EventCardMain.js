@@ -17,6 +17,7 @@ const EventCardMain = ({ event }) => {
               <div className='ecm-main-img-wrap'>
                 <img className='ecm-main-img' src={event.image_url} />
               </div>
+              <div>{event.date}</div>
             </div>
           </div>
           <h4 className='ecm-price'>{`$${event.price}`}</h4>

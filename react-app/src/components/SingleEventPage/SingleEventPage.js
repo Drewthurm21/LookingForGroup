@@ -24,9 +24,9 @@ const SingleEventPage = () => {
       setPosting(false)
     }
     const btn = document.getElementById("submit-comment")
-    // btn.addEventListener("click", closePost);
-    // document.removeEventListener('click', closePost)
-    // return () => document.removeEventListener("click", closePost)
+    btn.addEventListener("click", closePost);
+    document.removeEventListener('click', closePost)
+    return () => document.removeEventListener("click", closePost)
   }, [posting])
 
   useEffect(() => {

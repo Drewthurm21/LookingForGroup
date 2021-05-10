@@ -29,6 +29,7 @@ class Event(db.Model):
             'category_id': self.category_id,
             'price': self.price,
             'host_id': self.host_id,
+            'date': self.date,
             'server_id': self.server_id,
             'channel_id': self.channel_id,
             'comments': [comment.to_dict() for comment in self.comments]
