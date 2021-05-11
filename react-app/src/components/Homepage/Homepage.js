@@ -1,42 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAllEvents } from '../../store/events'
 import { useDispatch, useSelector } from 'react-redux'
 import CategoryCarousel from '../CategoryCarousel/CategoryCarousel'
 import './Homepage.css'
+import EventCardMain from '../EventCardMain/EventCardMain'
 
 const Homepage = () => {
   const dispatch = useDispatch()
+  const events = useSelector(state => state.events.events)
+
+  const [category, setCategory] = useState(1)
 
   useEffect(() => {
     dispatch(getAllEvents())
   }, [dispatch])
 
 
-  return (
+  return events && (
     <div className='homepage-wrapper'>
       <h1>Looking For Group</h1>
       <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/main_logo.PNG?raw=true' alt='logo'></img>
-      <div className='carousels-wrapper'>
-        <h2 className='crsl-category'>Apex Legends</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Call of Duty</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Battlefield</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Valorant</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Among Us</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Fall Guys</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Diablo III</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Monster Hunter</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Valheim</h2>
-        <CategoryCarousel />
-        <h2 className='crsl-category'>Minecraft</h2>
-        <CategoryCarousel />
+      <div className='sidebar-events'>
+        <div className='homepage-sidebar'>SIDEBAR
+        <div>sidebar</div>
+          <div>Apex Legends</div>
+        </div>
+        <div className='events-wrapper'>
+          <h1 className='carousel'>Feature Events!</h1>
+          <CategoryCarousel />
+          <div className='events-cards'>{
+            events.map(event => <EventCardMain event={event} />)
+          }</div>
+        </div>
       </div>
     </div>
   )

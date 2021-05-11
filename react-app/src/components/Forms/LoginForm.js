@@ -37,39 +37,46 @@ const LoginForm = () => {
   }
 
   return (
-    <form className='form' onSubmit={onLogin}>
-      <div className='form-errors'>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
-      </div>
-      <div className='form-input'>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div className='form-input'>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-      </div>
-      <div className='form-input'>
-        <p className='btn' onClick={onLogin} type="submit">Login</p>
-      </div>
-      <div className='form-input'>
-        <p className='btn' type="submit">Sign up</p>
-      </div>
-    </form>
+    <div className='login_form'>
+      <div className="square_1 square"></div>
+      <div className="square_2 square"></div>
+      <div className="square_3 square"></div>
+      <div className="square_4 square"></div>
+      <div className="square_5 square"></div>
+      <form className='login_form' onSubmit={onLogin}>
+        <div className='login_errors'>
+          {errors.map((error) => (
+            <div>{error}</div>
+          ))}
+        </div>
+        <div className='login_input'>
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div className='login_input'>
+          <label htmlFor="password">Password</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <div className='login_input'>
+          <p className='login_btn' onClick={onLogin} type="submit">Login</p>
+        </div>
+        <div className='login_input'>
+          <p className='login_btn' type="submit">Sign up</p>
+        </div>
+      </form>
+    </div>
   );
 };
 

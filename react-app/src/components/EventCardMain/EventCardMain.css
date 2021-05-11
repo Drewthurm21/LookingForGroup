@@ -13,8 +13,9 @@
   justify-content: end;
   position:relative;
   min-width: 300px;
-  height: 360px;
+  height: 365px;
   margin: 15px;
+  overflow: hidden;
   border-radius: 12px;
   box-shadow: 
     inset 5px 5px 15px rgba(0,0,0,0.2),
@@ -28,6 +29,7 @@
   display:flex;
   flex-direction:column;
   position:absolute;
+  overflow: hidden;
   top: 20px;
   left: 20px;
   right: 20px;
@@ -56,8 +58,8 @@
   font-size:x-large;
 }
 .ecm-main-img {
-  width:190px;
-  height:190px;
+  width:200px;
+  height:200px;
   margin: 4px;
 }
 
@@ -66,16 +68,16 @@
   bottom: 0;
   right:3px;
   margin: 2px 2px;
-  color: rgba(144, 144, 144, 0.1);
+  color: rgba(144, 144, 144, 0);
   justify-self: center;
   align-self: flex-end;
   font-size: 45px;
   z-index: -1;
-  transition: 400ms ease-in-out;
+  transition: 800ms ease-in-out;
 }
 
-.ecm-card-link:hover h4 {
-  color: rgba(255, 255, 255, 0.883)
+.event-card-link:hover h4 {
+  color: rgba(197, 194, 194, 0.9)
 }
 
 .event-card-link {

@@ -1,5 +1,6 @@
 from .db import db
 from sqlalchemy.orm import relationship
+import datetime
 
 
 class Event(db.Model):
@@ -13,6 +14,9 @@ class Event(db.Model):
         'categories.id'), nullable=False)
     price = db.Column(db.Numeric(asdecimal=False), nullable=False)
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    date = db.Column(
+        db.DateTime, default=datetime.datetime.utcnow, nullable=False)
+    tickets = db.Column(db.Integer, nullable=False, default=50)
     server_id = db.Column(db.String(64))
     channel_id = db.Column(db.String(64))
 
@@ -25,6 +29,7 @@ class Event(db.Model):
             'category_id': self.category_id,
             'price': self.price,
             'host_id': self.host_id,
+            'date': self.date,
             'server_id': self.server_id,
             'channel_id': self.channel_id,
             'comments': [comment.to_dict() for comment in self.comments]

@@ -26,7 +26,10 @@ const BuyTickets = () => {
   }
 
   return (
-    <div className='form'>
+    <div className='login_form'>
+      <div className="square_1 square"></div>
+      <div className="square_2 square"></div>
+      <div className="square_4 square"></div>
       <h1>{event.title}</h1>
       <br></br>
       <h3>{event.description}</h3>

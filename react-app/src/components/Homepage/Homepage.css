@@ -1,4 +1,33 @@
+
+.homepage-wrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .crsl-category {
   color: rgb(70, 71, 78)
 }
 
+.carousels-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-events {
+  display:flex;
+}
+
+.homepage-sidebar {
+  min-width: 15vw;
+  margin-left: 40px;
+}
+
+.events-cards {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

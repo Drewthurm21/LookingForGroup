@@ -18,15 +18,12 @@ const SingleEventPage = () => {
   const [loaded, setLoaded] = useState(false)
 
 
-  useEffect(() => {
-    if (!posting) return
-    const closePost = () => {
-      setPosting(false)
-    }
-    const btn = document.getElementById("submit-comment")
-    btn.addEventListener("click", closePost);
-    return () => document.removeEventListener("click", closePost)
-  }, [posting])
+  // useEffect(() => {
+  //   if (!posting) return
+  //   const closePost = () => {
+  //     setPosting(false)
+  //   }
+  // }, [posting])
 
   useEffect(() => {
     (async () => {
@@ -72,17 +69,17 @@ const SingleEventPage = () => {
         </div>
         <div className='comms-div'>
           <div className='discord-portal'>
-
             {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
+            {!event.server_id && <DiscordPortal />}
           </div>
           <div className='comments-section'>
             {user &&
               <div className='post-comment-btn' onClick={handlePost} >
                 {!posting && <div>POST A COMMENT</div>}
               </div>}
-            {user && posting && <PostCommentForm className='post-comment-form' event={event} />}
+            {user && posting && <PostCommentForm className='post-comment-form' event={event} setPosting={setPosting} />}
             <div className='comments'>
-              {event.comments.map(comment => <CommentCard comment={comment} user={user} key={comment.id} />).reverse()}
+              {user && event.comments.map(comment => <CommentCard comment={comment} event={event} user={user} key={comment.id} />).reverse()}
             </div>
           </div>
         </div>

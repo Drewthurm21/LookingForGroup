@@ -2,19 +2,16 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editComment, deleteComment } from '../../store/comments'
 
-const EditCommentForm = ({ comment }) => {
+const EditCommentForm = ({ comment, setEditing }) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
 
   const editCom = async (e) => {
     e.preventDefault();
     dispatch(editComment(content, comment.id))
+    setEditing(false)
   };
 
-  const deleteCom = async () => {
-
-    dispatch(deleteComment(comment.id))
-  }
 
   return (
     <form className='form'>
@@ -23,9 +20,6 @@ const EditCommentForm = ({ comment }) => {
       </div>
       <div className="button-div">
         <div onClick={editCom} type="submit">submit</div>
-      </div>
-      <div className="button-div">
-        <div onClick={() => deleteCom(comment.id)}>Delete</div>
       </div>
     </form>
   );
