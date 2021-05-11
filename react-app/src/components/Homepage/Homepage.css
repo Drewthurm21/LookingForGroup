@@ -24,10 +24,14 @@
 }
 
 .homepage-sidebar {
-  position: sticky;
+  position:sticky;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   margin-top:65px;
-  min-width: 15vw;
-  margin-left: 40px;
+  min-width: 315px;
+  min-height: 715px;
   color: white;
   border-radius: 12px;
   box-shadow: 
@@ -35,11 +39,36 @@
   inset -5px -5px 15px rgba(255,255,255,0.1),
         5px 5px 15px rgba(0,0,0,0.2),
         -5px -5px 15px rgba(255,255,255,0.1);
-  
+  height: 34vw;
 }
 
 .events-cards {
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: 45px;
+}
+
+.apex-div {
+  position: sticky;
+}
+
+.category-btn {
+  width: 225px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 15px;
+  text-align: center;
 }

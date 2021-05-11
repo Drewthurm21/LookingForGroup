@@ -7,15 +7,3 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
-
-
-.navbar {
-  height: 45px;
-  top: 0px;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rgba(17,17,17,1);
-  margin: 5px
-}
