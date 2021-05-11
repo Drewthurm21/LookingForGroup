@@ -8,14 +8,15 @@
   bottom: 0px;
   left: 0;
   right: 0;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background-color: rgba(49, 48, 48, 0.5);
   border:1px solid white;
-  border-radius: 12px;
-  height:40vw;
-  width: 45%;
+  border-radius: 12px; 
+  width: 400px;
+  height: 620px;
   align-items: center;
   justify-content: center;
 }
@@ -25,12 +26,3 @@ h1 {
   font-family: 'Poppins';
 }
 
-.form {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid white;
-  height: 100%;
-  border-radius: 12px;
-}

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { postComment } from '../../store/comments'
 import './SingleEventPage.css'
 
-const PostCommentForm = ({ event }) => {
+const PostCommentForm = ({ event, setPosting }) => {
   const dispatch = useDispatch();
 
   const [content, setContent] = useState("");
@@ -11,6 +11,7 @@ const PostCommentForm = ({ event }) => {
 
   const postCom = async (e) => {
     dispatch(postComment(content, event.id))
+    setPosting(false)
   };
 
 

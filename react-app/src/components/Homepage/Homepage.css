@@ -19,10 +19,15 @@
 
 .sidebar-events {
   display:flex;
-
 }
 
 .homepage-sidebar {
-  width: 15vw;
+  min-width: 15vw;
   margin-left: 40px;
+}
+
+.events-cards {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
