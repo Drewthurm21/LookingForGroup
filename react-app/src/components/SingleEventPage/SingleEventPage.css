@@ -36,7 +36,6 @@ max-height: 700px
   align-items: center;
   overflow-y: Scroll;
   width: 100%;
-
 }
 .comments-section::-webkit-scrollbar {
   display: none;

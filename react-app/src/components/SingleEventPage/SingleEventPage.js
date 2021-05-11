@@ -17,14 +17,6 @@ const SingleEventPage = () => {
   const [posting, setPosting] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
-
-  // useEffect(() => {
-  //   if (!posting) return
-  //   const closePost = () => {
-  //     setPosting(false)
-  //   }
-  // }, [posting])
-
   useEffect(() => {
     (async () => {
       const thisEvent = await dispatch(getOneEvent(Number(id)))
