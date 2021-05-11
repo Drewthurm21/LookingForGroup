@@ -70,6 +70,7 @@ const SingleEventPage = () => {
         <div className='comms-div'>
           <div className='discord-portal'>
             {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
+            {!event.server_id && <DiscordPortal />}
           </div>
           <div className='comments-section'>
             {user &&
@@ -78,7 +79,7 @@ const SingleEventPage = () => {
               </div>}
             {user && posting && <PostCommentForm className='post-comment-form' event={event} setPosting={setPosting} />}
             <div className='comments'>
-              {event.comments.map(comment => <CommentCard comment={comment} user={user} key={comment.id} />).reverse()}
+              {user && event.comments.map(comment => <CommentCard comment={comment} event={event} user={user} key={comment.id} />).reverse()}
             </div>
           </div>
         </div>

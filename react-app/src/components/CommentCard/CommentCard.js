@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import './CommentCard.css'
 import EditCommentForm from './EditCommentForm'
+import { deleteComment } from '../../store/comments'
 
-const CommentCard = ({ comment, user }) => {
+const CommentCard = ({ event, comment, user }) => {
+  const dispatch = useDispatch()
   const commentDate = comment.created_at.slice(0, 16)
   const [editing, setEditing] = useState(false);
 
@@ -21,6 +24,11 @@ const CommentCard = ({ comment, user }) => {
     setEditing(true);
   };
 
+  const deleteCom = async () => {
+    dispatch(deleteComment(comment.id))
+    setEditing(false)
+  }
+
   return (
     <>
       {
@@ -35,8 +43,12 @@ const CommentCard = ({ comment, user }) => {
           {comment.user_id === user?.id &&
             <div className='edit-btn' onClick={handleSubmit}>[ EDIT ]</div>}
           {editing && comment.user_id === user?.id ? (
-            <EditCommentForm comment={comment} />
+            <EditCommentForm comment={comment} setEditing={setEditing} />
           ) : null}
+          {user.id === event.host_id &&
+            <div className="button-div">
+              <div onClick={deleteCom}>Delete</div>
+            </div>}
         </div>
       }
     </>
