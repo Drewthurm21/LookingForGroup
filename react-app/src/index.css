@@ -1,14 +1,7 @@
-
-* {
-  margin: 5px
-}
-
 body {
   background: rgb(0, 0, 0);
   padding: 5px;
   margin: 5px;
-  /* filter: blur(5px); */
-  /* overflow: hidden; */
 }
 
 body::-webkit-scrollbar {
@@ -24,4 +17,5 @@ body::-webkit-scrollbar {
   justify-content: space-around;
   align-items: center;
   background-color: rgba(17,17,17,1);
+  margin: 5px
 }

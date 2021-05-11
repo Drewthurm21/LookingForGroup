@@ -19,14 +19,14 @@ const Homepage = () => {
   return events && (
     <div className='homepage-wrapper'>
       <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/main_logo.PNG?raw=true' alt='logo'></img>
+      <h1 className='carousel'>Feature Events!</h1>
+      <CategoryCarousel />
       <div className='sidebar-events'>
-        <div className='homepage-sidebar'>SIDEBAR
         <div>sidebar</div>
+        <div className='homepage-sidebar'>SIDEBAR
           <div>Apex Legends</div>
         </div>
         <div className='events-wrapper'>
-          <h1 className='carousel'>Feature Events!</h1>
-          <CategoryCarousel />
           <div className='events-cards'>{
             events.map(event => <EventCardMain event={event} />)
           }</div>

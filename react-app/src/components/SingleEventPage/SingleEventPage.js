@@ -43,8 +43,6 @@ const SingleEventPage = () => {
   return (
     <>
       <div className='event-page-wrapper'>
-
-        <h1>WELCOME</h1>
         <div className='image-sidebar'>
           <img className='single-event-img' alt='Event-Photo' src={event.image_url}></img>
           <div className='sidebar-wrapper'>

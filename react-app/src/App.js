@@ -7,7 +7,7 @@ import { authenticate } from './store/session';
 import Homepage from './components/Homepage/Homepage'
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import User from './components/User';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 import Modal from './components/Modal/Modal'
 import SingleEventPage from './components/SingleEventPage/SingleEventPage'
 
@@ -31,7 +31,7 @@ function App() {
           <SingleEventPage />
         </Route>
         <ProtectedRoute exact path='/profile' >
-          <User />
+          <ProfilePage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

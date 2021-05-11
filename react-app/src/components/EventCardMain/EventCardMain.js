@@ -17,7 +17,7 @@ const EventCardMain = ({ event }) => {
               <p className='ecm-title'>
                 {event.title}
               </p>
-              <div>{event.date}</div>
+              <div>{event.date.slice(0, 16)}</div>
             </div>
           </div>
           <h4 className='ecm-price'>{`$${event.price}`}</h4>

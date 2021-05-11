@@ -1,5 +1,7 @@
 
 .homepage-wrapper {
+  width: 80vw;
+  margin-left: 10vw;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -22,8 +24,18 @@
 }
 
 .homepage-sidebar {
+  position: sticky;
+  margin-top:65px;
   min-width: 15vw;
   margin-left: 40px;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 
+  inset 5px 5px 15px rgba(0,0,0,0.2),
+  inset -5px -5px 15px rgba(255,255,255,0.1),
+        5px 5px 15px rgba(0,0,0,0.2),
+        -5px -5px 15px rgba(255,255,255,0.1);
+  
 }
 
 .events-cards {

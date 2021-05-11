@@ -37,19 +37,19 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='login_form'>
-      <div className="square_1 square"></div>
-      <div className="square_2 square"></div>
-      <div className="square_3 square"></div>
-      <div className="square_4 square"></div>
-      <div className="square_5 square"></div>
-      <form className='login_form' onSubmit={onLogin}>
-        <div className='login_errors'>
+    <div className='login-form'>
+      <div className="square-1 square"></div>
+      <div className="square-2 square"></div>
+      <div className="square-3 square"></div>
+      <div className="square-4 square"></div>
+      <div className="square-5 square"></div>
+      <form className='login-form' onSubmit={onLogin}>
+        <div className='login-errors'>
           {errors.map((error) => (
             <div>{error}</div>
           ))}
         </div>
-        <div className='login_input'>
+        <div className='login-input'>
           <label htmlFor="email">Email</label>
           <input
             name="email"
@@ -59,7 +59,7 @@ const LoginForm = () => {
             onChange={updateEmail}
           />
         </div>
-        <div className='login_input'>
+        <div className='login-input'>
           <label htmlFor="password">Password</label>
           <input
             name="password"
@@ -69,11 +69,11 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
         </div>
-        <div className='login_input'>
-          <p className='login_btn' onClick={onLogin} type="submit">Login</p>
+        <div className='login-input'>
+          <p className='login-btn' onClick={onLogin} type="submit">Login</p>
         </div>
-        <div className='login_input'>
-          <p className='login_btn' type="submit">Sign up</p>
+        <div className='login-input'>
+          <p className='login-btn' type="submit">Sign up</p>
         </div>
       </form>
     </div>
