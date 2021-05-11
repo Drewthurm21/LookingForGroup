@@ -18,7 +18,6 @@ const Homepage = () => {
 
   return events && (
     <div className='homepage-wrapper'>
-      <h1>Looking For Group</h1>
       <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/main_logo.PNG?raw=true' alt='logo'></img>
       <div className='sidebar-events'>
         <div className='homepage-sidebar'>SIDEBAR
