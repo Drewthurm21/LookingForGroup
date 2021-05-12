@@ -26,10 +26,10 @@ const BuyTickets = () => {
   }
 
   return (
-    <div className='login_form'>
-      <div className="square_1 square"></div>
-      <div className="square_2 square"></div>
-      <div className="square_4 square"></div>
+    <div className='login-form'>
+      <div className="square-1 square"></div>
+      <div className="square-2 square"></div>
+      <div className="square-4 square"></div>
       <h1>{event.title}</h1>
       <br></br>
       <h3>{event.description}</h3>
@@ -41,9 +41,9 @@ const BuyTickets = () => {
         <div className='tickets-title'>How many tickets would you like?</div>
         <div>{`$${total.toFixed(2)}`}</div>
         <div className='select-tickets'>
-          <div className='del-ticket' onClick={delTicket}>--</div>
-          <div className='ticket-count'>{count}</div>
-          <div className='add-ticket' onClick={addTicket}>++</div>
+          <div className='tickets-btn' onClick={delTicket}>--</div>
+          <div className='tickets-btn'>{count}</div>
+          <div className='tickets-btn' onClick={addTicket}>++</div>
         </div>
       </div>
       <div className='confirm-btn' onClick={confirmPurchase}>CONFIRM PURCHASE</div>

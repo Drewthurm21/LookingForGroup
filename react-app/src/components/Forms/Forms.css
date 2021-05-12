@@ -1,11 +1,70 @@
-.loading_image {
+.loading-image {
   height: 60px;
   width: 60px;
 }
 
+.login-btn {
+  width: 65px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+}
 
-.login_form,
-.signup_form {
+.confirm-btn {
+  align-self: center;
+  margin: 5px;
+  width: 205px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+}
+
+.tickets-btn {
+  margin: 5px;
+  width: 45px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+}
+
+.select-tickets {
+  display:flex;
+}
+
+.login-form,
+.signup-form {
   position: relative;
   width: 100%;
   height: 100%;
@@ -13,8 +72,8 @@
   box-sizing: border-box;
 }
 
-.login_form h2,
-.signup_form h2 {
+.login-form h2,
+.signup-form h2 {
   position: relative;
   margin: 0;
   padding: 0;
@@ -25,8 +84,8 @@
   margin-bottom: 40px;
 }
 
-.login_form h2:before,
-.signup_form h2:before {
+.login-form h2:before,
+.signup-form h2:before {
   content: "";
   position: absolute;
   left: 0;
@@ -36,14 +95,14 @@
   background: #fff;
 }
 
-.login_form .login_input,
-.signup_form .signup_input {
+.login-form .login-input,
+.signup-form .signup-input {
   width: 100%;
   margin-top: 20px;
 }
 
-.login_form .login_input input,
-.signup_form .signup_input input {
+.login-form .login-input input,
+.signup-form .signup-input input {
   width: 90%;
   background: transparent;
   border: none;
@@ -59,13 +118,13 @@
   color: #fff;
 }
 
-.login_form .login_input input::placeholder,
-.signup_form .signup_input input::placeholder {
+.login-form .login-input input::placeholder,
+.signup-form .signup-input input::placeholder {
   color: #fff;
 }
 
-.login_form .login_input input[type="submit"],
-.signup_form .signup_input input[type="submit"] {
+.login-form .login-input input[type="submit"],
+.signup-form .signup-input input[type="submit"] {
   background: #fff;
   color: #666;
   border: none;
@@ -98,7 +157,7 @@
   }
 }
 
-.square_1 {
+.square-1 {
   top: -45px;
   left: 370px;
   height: 75px;
@@ -106,7 +165,7 @@
   animation-delay: -1s;
   background-image:linear-gradient(to top right, #FF488A, #FFB198);
 }
-.square_2 {
+.square-2 {
   top: 150px;
   left: -80px;
   height: 100px;
@@ -114,7 +173,7 @@
   animation-delay: -2s;
   background-image:linear-gradient(to bottom left, #FFB198, #FF488A);
 }
-.square_3 {
+.square-3 {
   top: 285px;
   left: 395px;
   height: 60px;
@@ -122,7 +181,7 @@
   animation-delay: -3s;
   background-image:linear-gradient(to top left, #FF488A, #FFB198 );
 }
-.square_4 {
+.square-4 {
   top: -80px;
   left: 80px;
   height: 40px;
@@ -130,7 +189,7 @@
   animation-delay: -4s;
   background-image:linear-gradient(to top right, #FF488A, #FFB198);
 }
-.square_5 {
+.square-5 {
   top: 530px;
   left: 100px;
   height: 55px;

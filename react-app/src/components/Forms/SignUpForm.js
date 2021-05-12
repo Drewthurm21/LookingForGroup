@@ -45,16 +45,16 @@ const SignUpForm = () => {
     return <Redirect to="/" />;
   }
   return (
-    <div className="signup_form">
-      <div className="square_1 square"></div>
-      <div className="square_2 square"></div>
-      <div className="square_3 square"></div>
-      <div className="square_4 square"></div>
-      <div className="square_5 square"></div>
+    <div className="signup-form">
+      <div className="square-1 square"></div>
+      <div className="square-2 square"></div>
+      <div className="square-3 square"></div>
+      <div className="square-4 square"></div>
+      <div className="square-5 square"></div>
       <h2>SignUp</h2>
       <form onSubmit={onSignUp}>
         <div></div>
-        <div className="signup_input">
+        <div className="signup-input">
           <input
             placeholder="Username"
             type="text"
@@ -63,7 +63,7 @@ const SignUpForm = () => {
             value={username}
           ></input>
         </div>
-        <div className="signup_input">
+        <div className="signup-input">
           <input
             placeholder="Email"
             type="text"
@@ -72,17 +72,17 @@ const SignUpForm = () => {
             value={email}
           ></input>
         </div>
-        <div className="signup_div_image">
+        <div className="signup-div-image">
           <input
-            name="profile_image"
+            name="profile-image"
             type="file"
             placeholder="Select Image"
             accept="image/*"
             onChange={updateImage}
-            className="signup_input_image"
+            className="signup-input-image"
           ></input>
         </div>
-        <div className="signup_input">
+        <div className="signup-input">
           <input
             placeholder="Password"
             type="password"
@@ -91,17 +91,17 @@ const SignUpForm = () => {
             value={password}
           ></input>
         </div>
-        <div className="signup_input">
+        <div className="signup-input">
           <input
             placeholder="Repeat Password"
             type="password"
-            name="repeat_password"
+            name="repeat-password"
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
           ></input>
         </div>
-        <div className="signup_input">
+        <div className="signup-input">
           <input type="submit" value="SignUp" />
         </div>
       </form>

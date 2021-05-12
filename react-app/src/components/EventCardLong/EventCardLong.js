@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './EventCardMain.css'
+import './EventCardLong.css'
 
-const EventCardMain = ({ event }) => {
+const EventCardLong = ({ event }) => {
 
 
   return (
@@ -11,8 +11,8 @@ const EventCardMain = ({ event }) => {
         <NavLink className='event-card-link' to={`/events/${event.id}`} >
           <div className='ecm-card-box'>
             <div className='ecm-card-content'>
-              <div className='ecm-main-img-wrap'>
-                <img className='ecm-main-img' src={event.image_url} />
+              <div className='ecm-Long-img-wrap'>
+                <img className='ecm-Long-img' src={event.image_url} />
               </div>
               <p className='ecm-title'>
                 {event.title}
@@ -28,5 +28,4 @@ const EventCardMain = ({ event }) => {
   )
 }
 
-export default EventCardMain
-
+export default EventCardLong

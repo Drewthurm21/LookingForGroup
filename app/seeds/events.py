@@ -100,7 +100,7 @@ def seed_events():
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
             image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
-            category_id=faker.pyint(min_value=1, max_value=15),
+            category_id=faker.pyint(min_value=1, max_value=10),
             price=faker.pyint(min_value=1, max_value=150),
             host_id=faker.pyint(min_value=1, max_value=5),
             date=faker.future_datetime(end_date='+90d'),

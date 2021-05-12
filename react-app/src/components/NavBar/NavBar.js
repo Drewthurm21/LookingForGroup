@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
+import { showModal, setCurrentModal } from '../../store/modal'
 import LogoutButton from '../Forms/LogoutButton';
 import LoginForm from '../Forms/LoginForm'
 import SignupForm from '../Forms/SignUpForm'
-import { showModal, setCurrentModal } from '../../store/modal'
+import './NavBar.css'
 
 const NavBar = () => {
   const dispatch = useDispatch()
