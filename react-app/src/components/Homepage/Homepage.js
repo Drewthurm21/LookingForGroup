@@ -40,7 +40,7 @@ const Homepage = () => {
         </div>
         <div className='events-wrapper'>
           <div className='events-cards'>{
-            events.map(event => <EventCardMain event={event} />)
+            events.map(event => event.category_id === category ? <EventCardMain event={event} /> : null)
           }</div>
         </div>
       </div>
