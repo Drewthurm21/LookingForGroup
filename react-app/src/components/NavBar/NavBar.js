@@ -24,7 +24,7 @@ const NavBar = () => {
   return (
     <nav className='navbar'>
       <div className='nav-btn'>
-        <NavLink to='/' activeClassName='active'>
+        <NavLink to='/home' activeClassName='active'>
           HOME
         </NavLink>
       </div>

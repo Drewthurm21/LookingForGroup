@@ -10,7 +10,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import Modal from './components/Modal/Modal'
 import SingleEventPage from './components/SingleEventPage/SingleEventPage'
-
+import SplashPage from './components/SplashPage/SplashPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -21,16 +21,21 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Modal />
       <Switch>
         <Route exact path='/' >
+          <SplashPage />
+        </Route>
+        <Route exact path='/home' >
+          <NavBar />
           <Homepage />
         </Route>
         <Route exact path='/events/:id' >
+          <NavBar />
           <SingleEventPage />
         </Route>
         <ProtectedRoute exact path='/profile' >
+          <NavBar />
           <ProfilePage />
         </ProtectedRoute>
       </Switch>
