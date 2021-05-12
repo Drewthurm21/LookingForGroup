@@ -43,10 +43,10 @@ def seed_comments():
     )
     db.session.add(comment)
 
-    for i in range(300):
+    for i in range(1000):
         comment = Comment(
             user_id=faker.pyint(min_value=1, max_value=5),
-            event_id=faker.pyint(min_value=1, max_value=50),
+            event_id=faker.pyint(min_value=1, max_value=105),
             content=faker.sentence(nb_words=30),
             created_at=faker.date_time_this_year(),
             updated_at=datetime.datetime.utcnow()

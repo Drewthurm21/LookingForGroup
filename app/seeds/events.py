@@ -71,12 +71,12 @@ def seed_events():
     )
     db.session.add(event)
 
-    for i in range(25):
+    for i in range(100):
         event = Event(
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
             image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
-            category_id=faker.pyint(min_value=1, max_value=15),
+            category_id=faker.pyint(min_value=1, max_value=10),
             price=faker.pyint(min_value=1, max_value=150),
             host_id=faker.pyint(min_value=1, max_value=5),
             date=faker.future_datetime(end_date='+90d'),
@@ -87,9 +87,9 @@ def seed_events():
         event2 = Event(
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
-            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
-            category_id=faker.pyint(min_value=1, max_value=15),
-            price=faker.pyint(min_value=1, max_value=150),
+            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1080x1080",
+            category_id=faker.pyint(min_value=1, max_value=10),
+            price=faker.pyint(min_value=1, max_value=100),
             host_id=faker.pyint(min_value=1, max_value=5),
             date=faker.future_datetime(end_date='+90d'),
             server_id='839942777001082941',
@@ -99,9 +99,9 @@ def seed_events():
         event3 = Event(
             title=faker.text(max_nb_chars=30),
             description=faker.sentence(nb_words=20),
-            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1920x1080",
+            image_url=f"https://source.unsplash.com/random?sig={random.randint(0, 10000)}/1080x1600",
             category_id=faker.pyint(min_value=1, max_value=10),
-            price=faker.pyint(min_value=1, max_value=150),
+            price=faker.pyint(min_value=1, max_value=100),
             host_id=faker.pyint(min_value=1, max_value=5),
             date=faker.future_datetime(end_date='+90d'),
             server_id='839942777001082941',

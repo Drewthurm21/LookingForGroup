@@ -8,6 +8,9 @@
   align-items: center;
 }
 
+.carousel {
+  margin-top: 360px;
+}
 .crsl-category {
   color: rgb(70, 71, 78)
 }
