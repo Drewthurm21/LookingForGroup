@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import EventCardMain from '../EventCardMain/EventCardMain'
-
+import './ProfilePage.css'
 
 function ProfilePage() {
 
@@ -10,8 +10,8 @@ function ProfilePage() {
 
   return user && events && (
     <div className='profile-page-wrapper'>
-      <div>{user.username}</div>
-      <img src={user.avatars}></img>
+      <div className='profile-username'>{user.username}</div>
+      <img className='profile-avatar' src={user.avatars}></img>
       <div>{user.registrations.length}</div>
       <div className='user-events'>
         {events.map(event => {
