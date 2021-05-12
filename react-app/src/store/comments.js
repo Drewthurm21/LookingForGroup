@@ -3,7 +3,7 @@ import { getOneEvent } from './events'
 
 export const postComment = (content, event_id) => async (dispatch) => {
 
-  const response = await fetch(`/api/comments`, {
+  const response = await fetch(`/api/comments/`, {
     headers: { "Content-Type": 'application/json' },
     body: JSON.stringify({
       event_id,
