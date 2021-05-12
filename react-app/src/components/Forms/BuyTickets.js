@@ -17,12 +17,10 @@ const BuyTickets = () => {
 
   const delTicket = () => {
     setCount(count ? count - 1 : 0)
-    console.log(total)
   }
 
   const addTicket = () => {
     setCount(count + 1)
-    console.log(total)
   }
 
   return (

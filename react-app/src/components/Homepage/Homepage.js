@@ -17,7 +17,7 @@ const Homepage = () => {
 
 
   useEffect(() => {
-    console.log(category)
+
   }, [category])
 
   return events && (
