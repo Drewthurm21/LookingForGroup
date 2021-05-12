@@ -9,7 +9,7 @@
 }
 
 .carousel {
-  margin-top: 360px;
+  margin-top: 160px;
 }
 .crsl-category {
   color: rgb(70, 71, 78)
@@ -80,4 +80,8 @@
   color: #fff;
   margin: 15px;
   text-align: center;
+}
+
+.main-logo {
+  margin-top: 100px;
 }

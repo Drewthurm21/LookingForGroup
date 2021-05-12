@@ -23,7 +23,7 @@ const NavBar = () => {
 
   return (
     <nav className='navbar'>
-      <div className='nav-btn'>
+      <div className='login-btn'>
         <NavLink to='/home' activeClassName='active'>
           HOME
         </NavLink>
@@ -31,17 +31,17 @@ const NavBar = () => {
       {!user &&
         <>
           <div>
-            <div className='nav-btn' onClick={showLogin}>
+            <div className='login-btn' onClick={showLogin}>
               login
        </div>
           </div>
           <div>
-            <div className='nav-btn' onClick={showSignup}>
+            <div className='login-btn' onClick={showSignup}>
               Signup
         </div>
           </div>
         </>}
-      <div className='nav-btn'>
+      <div className='login-btn'>
         <NavLink to='/profile' activeClassName='active'>
           PROFILE
         </NavLink>
