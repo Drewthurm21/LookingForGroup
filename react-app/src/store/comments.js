@@ -18,7 +18,7 @@ export const postComment = (content, event_id) => async (dispatch) => {
 }
 
 export const editComment = (content, id) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${id}`, {
+  const response = await fetch(`/api/comments/${id}/`, {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       id,
@@ -34,7 +34,7 @@ export const editComment = (content, id) => async (dispatch) => {
 };
 
 export const deleteComment = (id) => async (dispatch) => {
-  const response = await fetch(`/api/comments/${id}`, {
+  const response = await fetch(`/api/comments/${id}/`, {
     headers: { "Content-Type": "application/json" },
     method: "DELETE",
   });
