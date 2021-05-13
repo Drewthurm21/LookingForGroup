@@ -26,7 +26,7 @@ export const getOneEvent = (id) => async (dispatch) => {
 
 export const getAllEvents = () => async (dispatch) => {
   const response = await fetch('/api/events')
-  const events = await response.json()
+  const { events } = await response.json()
   dispatch(setEvents(events))
 }
 

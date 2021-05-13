@@ -6,11 +6,11 @@ event_routes = Blueprint('events', __name__)
 
 
 # return all events
-@event_routes.route('/')
+@event_routes.route('')
 def events():
     all_events = Event.query.all()
     events = [event.to_dict() for event in all_events]
-    return jsonify(events)
+    return {'events': events}
 
 
 # return a single event
