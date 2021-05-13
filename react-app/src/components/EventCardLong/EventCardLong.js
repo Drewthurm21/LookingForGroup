@@ -6,21 +6,21 @@ const EventCardLong = ({ event }) => {
 
 
   return (
-    <div className='ecm-wrapper'>
-      <div className='ecm-inner-card'>
+    <div className='ecl-wrapper'>
+      <div className='ecl-inner-card'>
         <NavLink className='event-card-link' to={`/events/${event.id}`} >
-          <div className='ecm-card-box'>
-            <div className='ecm-card-content'>
-              <div className='ecm-Long-img-wrap'>
-                <img className='ecm-Long-img' src={event.image_url} />
+          <div className='ecl-card-box'>
+            <div className='ecl-card-content'>
+              <div className='ecl-Long-img-wrap'>
+                <img className='ecl-Long-img' src={event.image_url} />
               </div>
-              <p className='ecm-title'>
+              <p className='ecl-title'>
                 {event.title}
               </p>
               <div>{event.date.slice(0, 16)}</div>
             </div>
           </div>
-          <h4 className='ecm-price'>{`$${event.price}`}</h4>
+          <h4 className='ecl-price'>{`$${event.price}`}</h4>
         </NavLink>
       </div>
     </div >
