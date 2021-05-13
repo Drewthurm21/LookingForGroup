@@ -149,7 +149,6 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   animation: drift 7s linear infinite;
-  z-index: 1000;
 }
 
 @keyframes drift {
@@ -167,6 +166,7 @@
   left: 370px;
   height: 75px;
   width: 75px;
+  z-index: -1;
   animation-delay: -1s;
   background-image:linear-gradient(to top right, #FF488A, #FFB198);
 }
@@ -175,6 +175,7 @@
   left: -80px;
   height: 100px;
   width: 100px;
+  z-index: -1;
   animation-delay: -2s;
   background-image:linear-gradient(to bottom left, #FFB198, #FF488A);
 }

@@ -14,7 +14,7 @@ const setEvent = (event) => ({
 
 
 export const getOneEvent = (id) => async (dispatch) => {
-  const response = await fetch(`/api/events/${id}/`)
+  const response = await fetch(`/api/events/${id}`)
   if (response.ok) {
     const event = await response.json()
     dispatch(setEvent(event))
@@ -25,7 +25,7 @@ export const getOneEvent = (id) => async (dispatch) => {
 
 
 export const getAllEvents = () => async (dispatch) => {
-  const response = await fetch('/api/events/')
+  const response = await fetch('/api/events')
   const events = await response.json()
   dispatch(setEvents(events))
 }

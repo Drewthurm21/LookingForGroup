@@ -22,10 +22,9 @@ const Homepage = () => {
 
   return events && (
     <div className='homepage-wrapper'>
-      <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/lfg-controller-logo.png?raw=true' alt='logo'></img>
+      <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/lfg-banner-gif.gif?raw=true' alt='logo'></img>
       <h1 className='carousel'>Feature Events!</h1>
       <CategoryCarousel />
-      <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/lfg-banner-gif.gif?raw=true' alt='logo'></img>
       <div className='sidebar-events'>
         <div className='homepage-sidebar'>
           <div id='1' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Call of Duty</div>

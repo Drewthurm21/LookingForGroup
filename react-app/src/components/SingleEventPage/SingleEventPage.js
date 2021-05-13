@@ -69,7 +69,8 @@ const SingleEventPage = () => {
               </div>}
             {user && posting && <PostCommentForm className='post-comment-form' event={event} setPosting={setPosting} />}
             <div className='comments'>
-              {user && event.comments.map(comment => <CommentCard comment={comment} event={event} user={user} key={comment.id} />).reverse()}
+              {user ? event.comments.map(comment => <CommentCard comment={comment} event={event} user={user} key={comment.id} />).reverse() :
+                <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/lfg-controller-logo.png?raw=true' alt='logo'></img>}
             </div>
           </div>
         </div>

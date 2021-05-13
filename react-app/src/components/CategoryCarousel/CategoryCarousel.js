@@ -29,6 +29,7 @@ const CategoryCarousel = () => {
 
   let currentCards;
   if (events) {
+    //let 
     currentCards = [
       <EventCardMain key={'o'} event={events[index]} />,
       <EventCardMain key={'p'} event={events[index2]} />,

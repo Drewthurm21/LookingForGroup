@@ -68,13 +68,3 @@ header::before {
   min-height: 100vh;
 }
 
-.container {
-  z-index: 2;
-  position: absolute;
-  top: 100vh;
-  background: black;
-  line-height: 30px;
-  font-weight: lighter;
-  padding: 40px;
-  color: grey;
-}
