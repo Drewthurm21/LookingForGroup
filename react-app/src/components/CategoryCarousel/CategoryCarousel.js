@@ -6,7 +6,7 @@ import './CategoryCarousel.css'
 
 const CategoryCarousel = () => {
 
-  const events = useSelector(state => state.events.events)
+  let events = useSelector(state => state.events.events)
 
   const [index, setIndex] = useState(0)
   const [index2, setIndex2] = useState(1)
@@ -29,7 +29,7 @@ const CategoryCarousel = () => {
 
   let currentCards;
   if (events) {
-    //let 
+    events = events.slice(0, 10)
     currentCards = [
       <EventCardMain key={'o'} event={events[index]} />,
       <EventCardMain key={'p'} event={events[index2]} />,
