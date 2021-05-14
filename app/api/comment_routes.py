@@ -7,7 +7,7 @@ comment_routes = Blueprint('comments', __name__)
 
 
 # get comments
-@comment_routes.route('/')
+@comment_routes.route('')
 def get_comments():
     all_comments = Comment.query.all()
     comments = [comment.to_dict() for comment in all_comments]
@@ -22,7 +22,7 @@ def get_comment(id):
 
 
 # post a comment
-@comment_routes.route('/', methods=['POST'])
+@comment_routes.route('', methods=['POST'])
 @login_required
 def post_comment():
     event_id = request.json['event_id']
@@ -57,4 +57,4 @@ def delete_comment(id):
     comment = Comment.query.get(id)
     db.session.delete(comment)
     db.session.commit()
-    return comment.to_dict()
+    return {"event_id": comment.event_id}

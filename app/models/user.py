@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
         db.Integer, db.ForeignKey('avatars.id'), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    image_url = db.Column(db.String(500))
 
     @property
     def password(self):
@@ -35,6 +36,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
+            'image_url': self.image_url,
             'registrations': [reg.get_event() for reg in self.registrations],
             'avatars': self.avatars.get_url()
         }
