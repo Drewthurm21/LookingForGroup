@@ -4,6 +4,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import { hideModal } from "../../store/modal";
 import "./Forms.css";
+
+
 const SignUpForm = () => {
   const dispatch = useDispatch();
   let history = useHistory();

@@ -35,6 +35,17 @@ class Event(db.Model):
             'comments': [comment.to_dict() for comment in self.comments]
         }
 
+    def to_simple_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'image_url': self.image_url,
+            'category_id': self.category_id,
+            'price': self.price,
+            'date': self.date,
+        }
+
     host = relationship(
         'User', back_populates='events')
     category = relationship('Category', back_populates='events')
