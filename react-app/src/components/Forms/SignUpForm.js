@@ -4,6 +4,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import { hideModal } from "../../store/modal";
 import "./Forms.css";
+
+
 const SignUpForm = () => {
   const dispatch = useDispatch();
   let history = useHistory();
@@ -13,34 +15,39 @@ const SignUpForm = () => {
   const [image, setImage] = useState(null);
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+
   const onSignUp = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("image", image);
     if (password === repeatPassword) {
       await dispatch(
         signUp(username, email, image, password)
       );
       dispatch(hideModal());
-      history.push("/");
+      history.push("/home");
     }
   };
+
   const updateUsername = (e) => {
     setUsername(e.target.value);
   };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
+
   const updateImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
   };
+
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+
   if (user) {
     return <Redirect to="/" />;
   }
