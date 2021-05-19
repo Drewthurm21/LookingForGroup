@@ -16,6 +16,7 @@
   inset -5px -5px 15px rgba(255,255,255,0.1),
         5px 5px 15px rgba(0,0,0,0.2),
         -5px -5px 15px rgba(255,255,255,0.1);
+  margin: 15px;
 }
 
 .single-event-img {
@@ -26,8 +27,9 @@
 .image-sidebar {
   display: flex;
   color: white;
-  flex-direction:row;
-  justify-content: space-evenly;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
   margin: 15px;
 }
 
