@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { hideModal } from '../../store/modal'
@@ -15,6 +15,19 @@ const Modal = () => {
   const onClose = () => {
     dispatch(hideModal())
   }
+
+  useEffect(() => {
+    if (display) {
+      document.body.style.overflowY = 'hidden'
+      document.getElementById('root').style.overflowY = 'hidden'
+    }
+
+    return () => {
+      document.body.style.overflowY = ''
+      document.getElementById('root').style.overflowY = ''
+    }
+
+  }, [display])
 
   return mount && display && ReactDOM.createPortal(
     <div className='modal-background' onClick={onClose}>

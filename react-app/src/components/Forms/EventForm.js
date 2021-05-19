@@ -59,9 +59,28 @@ const EventForm = () => {
 
 
   return (
-    <div>
-      Form
+    <div className='event-form-wrapper'>
+      <div className='page-one'>
+
+      </div>
+
+      <div className='page-one'>
+
+      </div>
+
+      <div className='page-one'>
+
+      </div>
+
+      <div className='page-one'>
+
+      </div>
+
+      <div className='page-one'>
+
+      </div>
     </div>
+
   )
 
 
