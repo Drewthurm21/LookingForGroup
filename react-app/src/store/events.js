@@ -12,7 +12,6 @@ const setEvent = (event) => ({
   payload: event
 })
 
-
 export const getOneEvent = (id) => async (dispatch) => {
   const response = await fetch(`/api/events/${id}`)
   if (response.ok) {
@@ -22,7 +21,6 @@ export const getOneEvent = (id) => async (dispatch) => {
   }
   return false
 }
-
 
 export const getAllEvents = () => async (dispatch) => {
   const response = await fetch('/api/events')
