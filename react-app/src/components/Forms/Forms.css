@@ -63,12 +63,18 @@
   text-align: center;
 }
 
-.event-btns {
+.event-btn1 {
   position:absolute;
   bottom: 10px;
-  display: flex;
-  justify-content: space-evenly;
-  z-index: 10;
+  left: 15px;
+  z-index: 1;
+}
+
+.event-btn2 {
+  position:absolute;
+  bottom: 10px;
+  right: 15px;
+  z-index: 1;
 }
 
 .select-tickets {
@@ -99,7 +105,6 @@
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 1px;
-  margin-bottom: 40px;
 }
 
 
@@ -122,11 +127,22 @@
   margin-top: 20px;
 }
 
+.event-form textarea {
+  max-width: 260px;
+  max-height: 140px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  justify-self: flex-start;
+}
+
 .event-form .event-input input,
 .login-form .login-input input,
 .signup-form .signup-input input {
   width: 90%;
-  background: transparent;
   border: none;
   padding: 10px 20px;
   border-radius: 35px;

@@ -17,9 +17,12 @@ function ProfilePage() {
 
   return user && events && (
     <div className='profile-page-wrapper'>
+      <div className='image-stats'>
+        <img className='profile-avatar' src={user.avatars}></img>
+
+      </div>
       <div className='profile-username'>{user.username}</div>
-      <img className='profile-avatar' src={user.avatars}></img>
-      <div onClick={startEventPost}> POST EVENT</div>
+      <div className='post-event-btn' onClick={startEventPost}> POST EVENT</div>
       <div>{user.registrations.length}</div>
       <div className='user-events'>
         {events.map(event => {
