@@ -3,6 +3,7 @@
   width: 60px;
 }
 
+.event-btn,
 .login-btn {
   width: 65px;
   background: transparent;
@@ -19,6 +20,7 @@
   letter-spacing: 1px;
   color: #fff;
   text-align: center;
+  cursor: pointer;
 }
 
 .confirm-btn {
@@ -39,6 +41,7 @@
   letter-spacing: 1px;
   color: #fff;
   text-align: center;
+  cursor: pointer;
 }
 
 .tickets-btn {
@@ -60,10 +63,19 @@
   text-align: center;
 }
 
+.event-btns {
+  position:absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 10;
+}
+
 .select-tickets {
   display:flex;
 }
 
+.event-form,
 .login-form,
 .signup-form {
   display:flex;
@@ -77,6 +89,7 @@
   
 }
 
+.event-form h2,
 .login-form h2,
 .signup-form h2 {
   position: relative;
@@ -89,6 +102,8 @@
   margin-bottom: 40px;
 }
 
+
+.event-form h2:before,
 .login-form h2:before,
 .signup-form h2:before {
   content: "";
@@ -100,12 +115,14 @@
   background: #fff;
 }
 
+.event-form .event-input,
 .login-form .login-input,
 .signup-form .signup-input {
   width: 100%;
   margin-top: 20px;
 }
 
+.event-form .event-input input,
 .login-form .login-input input,
 .signup-form .signup-input input {
   width: 90%;
@@ -123,11 +140,13 @@
   color: #fff;
 }
 
+.event-form .event-input input::placeholder,
 .login-form .login-input input::placeholder,
 .signup-form .signup-input input::placeholder {
   color: #fff;
 }
 
+.event-form .event-input input[type="submit"],
 .login-form .login-input input[type="submit"],
 .signup-form .signup-input input[type="submit"] {
   background: #fff;
@@ -148,15 +167,39 @@
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  animation: drift 7s linear infinite;
+  animation: vert 7s linear infinite;
 }
 
-@keyframes drift {
+.dsquare {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(236, 89, 4, 0.781);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  animation: diag 5s linear infinite;
+}
+
+@keyframes vert {
   0%,
   100% {
     transform: translateY(-25px);
   }
   50% {
+    transform: translateY(25px);
+  }
+}
+
+@keyframes diag {
+  0%,
+  100% {
+    transform: translateX(-25px);
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateX(25px);
     transform: translateY(25px);
   }
 }
@@ -202,4 +245,14 @@
   width: 55px;
   animation-delay: -5s;
   background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+}
+
+.dsquare-1 {
+  top: 530px;
+  left: 100px;
+  height: 55px;
+  width: 55px;
+  animation-delay: -5s;
+  background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+  z-index: -1;
 }
