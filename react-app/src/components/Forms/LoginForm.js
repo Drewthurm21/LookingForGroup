@@ -24,6 +24,15 @@ const LoginForm = () => {
     dispatch(hideModal())
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo2@aa.io', 'password2'));
+    if (data.errors) {
+      setErrors(data.errors);
+    }
+    dispatch(hideModal())
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -33,7 +42,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/home" />;
   }
 
   return (
@@ -74,6 +83,9 @@ const LoginForm = () => {
         </div>
         <div className='login-input'>
           <p className='login-btn' type="submit">Sign up</p>
+        </div>
+        <div className='login-input'>
+          <p className='login-btn' onClick={demoLogin} type="submit">Demo Login</p>
         </div>
       </form>
     </div>
