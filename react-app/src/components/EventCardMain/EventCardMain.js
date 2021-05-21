@@ -12,7 +12,7 @@ const EventCardMain = ({ event }) => {
           <div className='ecm-card-box'>
             <div className='ecm-card-content'>
               <div className='ecm-main-img-wrap'>
-                <img className='ecm-main-img' src={event.image_url} />
+                <img className='ecm-main-img' src={event.image_url} alt='event_banner' />
               </div>
               <p className='ecm-title'>
                 {event.title}

@@ -27,7 +27,7 @@ const SingleEventPage = () => {
       }
     })()
 
-  }, [dispatch])
+  }, [dispatch, id])
 
   const handlePost = () => {
     setPosting(true)
