@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import EventCardMain from '../EventCardMain/EventCardMain'
 import { showModal, setCurrentModal } from '../../store/modal'
+import EventCardMain from '../EventCardMain/EventCardMain'
+import EventCardLong from '../EventCardLong/EventCardLong'
 import EventForm from '../Forms/EventForm'
 import './ProfilePage.css'
 
@@ -27,7 +28,7 @@ function ProfilePage() {
       <div className='user-events'>
         {events.map(event => {
           if (user.registrations.includes(event.id)) {
-            return <EventCardMain event={event} />
+            return <EventCardLong event={event} />
           }
         })}
       </div>
