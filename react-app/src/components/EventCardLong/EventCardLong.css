@@ -63,7 +63,7 @@
   margin: 2px 2px;
   color: rgba(144, 144, 144, 0);
   justify-self: center;
-  align-self: flex-end;
+  align-self: center;
   font-size: 20px;
   z-index: -1;
   transition: all 540ms ease-in-out;

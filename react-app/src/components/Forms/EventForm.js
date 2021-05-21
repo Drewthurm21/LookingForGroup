@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { postEvent } from '../../store/events'
 import { hideModal } from '../../store/modal'
+
 import './Forms.css'
 
 const EventForm = () => {
@@ -12,7 +14,7 @@ const EventForm = () => {
   const [image, setImage] = useState(null)
   const [category, setCategory] = useState(0)
   const [price, setPrice] = useState(0)
-  const [date, setDate] = useState()
+  const [date, setDate] = useState('')
   const [tickets, setTickets] = useState(50)
   const [server, setServer] = useState('')
   const [channel, setChannel] = useState('')
@@ -44,12 +46,27 @@ const EventForm = () => {
   }
 
   const cancelPost = () => {
-
     dispatch(hideModal())
   }
 
-  const postEvent = () => {
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
 
+
+  const postNewEvent = () => {
+    const formData = new FormData()
+    formData.append('image', image)
+    formData.append('title', title)
+    formData.append('description', description)
+    formData.append('date', date)
+    formData.append('price', price)
+    formData.append('tickets', tickets)
+    formData.append('category_id', Number(category))
+    formData.append('channel_id', channel)
+    formData.append('server_id', server)
+    dispatch(postEvent(formData))
   }
 
 
@@ -79,7 +96,7 @@ const EventForm = () => {
                 type="file"
                 placeholder="Select Image"
                 accept="image/*"
-                onChange={setImage}
+                onChange={updateImage}
                 className="signup-input-image"
               ></input>
             </div>
@@ -155,7 +172,7 @@ const EventForm = () => {
             <div className='event-input'>channel {channel}</div>
             <div className='event-btns'>
               <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>
-              <div className='event-btn2 event-btn' onClick={postEvent}>Confirm!</div>
+              <div className='event-btn2 event-btn' onClick={postNewEvent}>Confirm!</div>
             </div>
           </form>
         </div>

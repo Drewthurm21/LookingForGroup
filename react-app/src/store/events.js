@@ -1,3 +1,4 @@
+import { authenticate } from './session'
 
 const SET_EVENTS = 'events/SET_EVENTS'
 const SET_EVENT = 'events/SET_EVENT'
@@ -28,10 +29,21 @@ export const getAllEvents = () => async (dispatch) => {
   dispatch(setEvents(events))
 }
 
+export const postEvent = (formData) => async (dispatch) => {
+  const response = await fetch('/api/events', { method: "POST", body: formData })
+  if (response.ok) {
+    const { event } = await response.json()
+    dispatch(authenticate())
+  }
+
+}
+
+
 const initialState = {
   event: null,
   events: null,
 }
+
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {

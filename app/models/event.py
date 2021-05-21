@@ -16,7 +16,7 @@ class Event(db.Model):
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     date = db.Column(
         db.DateTime, default=datetime.datetime.utcnow, nullable=False)
-    tickets = db.Column(db.Integer, nullable=False, default=50)
+    tickets = db.Column(db.Integer, nullable=False, default=0)
     server_id = db.Column(db.String(64))
     channel_id = db.Column(db.String(64))
 
