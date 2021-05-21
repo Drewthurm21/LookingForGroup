@@ -11,6 +11,11 @@ const EditCommentForm = ({ comment, setEditing }) => {
     dispatch(editComment(content, comment.id))
     setEditing(false)
   };
+  const delCom = async (e) => {
+    e.preventDefault();
+    dispatch(deleteComment(content, comment.id))
+    setEditing(false)
+  };
 
 
   return (
@@ -20,6 +25,7 @@ const EditCommentForm = ({ comment, setEditing }) => {
       </div>
       <div className="button-div">
         <div onClick={editCom} type="submit">submit</div>
+        <div onClick={delCom} type="submit">delete</div>
       </div>
     </form>
   );

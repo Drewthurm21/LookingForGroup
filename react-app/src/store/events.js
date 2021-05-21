@@ -3,15 +3,18 @@ import { authenticate } from './session'
 const SET_EVENTS = 'events/SET_EVENTS'
 const SET_EVENT = 'events/SET_EVENT'
 
+
 const setEvents = (events) => ({
   type: SET_EVENTS,
   payload: events
 })
 
+
 const setEvent = (event) => ({
   type: SET_EVENT,
   payload: event
 })
+
 
 export const getOneEvent = (id) => async (dispatch) => {
   const response = await fetch(`/api/events/${id}`)
@@ -23,11 +26,13 @@ export const getOneEvent = (id) => async (dispatch) => {
   return false
 }
 
+
 export const getAllEvents = () => async (dispatch) => {
   const response = await fetch('/api/events')
   const { events } = await response.json()
   dispatch(setEvents(events))
 }
+
 
 export const postEvent = (formData) => async (dispatch) => {
   const response = await fetch('/api/events', { method: "POST", body: formData })
@@ -35,7 +40,6 @@ export const postEvent = (formData) => async (dispatch) => {
     const { event } = await response.json()
     dispatch(authenticate())
   }
-
 }
 
 

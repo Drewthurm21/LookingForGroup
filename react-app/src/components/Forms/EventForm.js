@@ -9,16 +9,17 @@ const EventForm = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
 
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [title, setTitle] = useState()
+  const [description, setDescription] = useState()
   const [image, setImage] = useState(null)
-  const [category, setCategory] = useState(0)
-  const [price, setPrice] = useState(0)
-  const [date, setDate] = useState('')
-  const [tickets, setTickets] = useState(50)
-  const [server, setServer] = useState('')
-  const [channel, setChannel] = useState('')
-  const [page, setPage] = useState(1)
+  const [category, setCategory] = useState()
+  const [price, setPrice] = useState()
+  const [date, setDate] = useState()
+  const [tickets, setTickets] = useState()
+  const [server, setServer] = useState()
+  const [channel, setChannel] = useState()
+  const [page, setPage] = useState()
+  const [errors, setErrors] = useState([])
 
   const categories = [
     'Call of Duty',
@@ -54,19 +55,50 @@ const EventForm = () => {
     setImage(file);
   };
 
+  useEffect(() => {
+    let e = []
+    if (!title) e.push("Events must have a title")
+    if (!date) e.push("Please add a date")
+    if (!tickets) e.push("Please add a tickets")
+    if (!price) e.push("Please add a price")
+    if (!category) e.push("Please add a category")
+    if (!description) e.push("Please add a description")
+    if (!server) e.push("Please add a server")
+    if (!channel) e.push("Please add a channel")
+    if (!(server && channel)) e.push("Discord must have both a Server id and a Channel id.")
+    setErrors(e)
+  }, [title, date, tickets, price, category, description, server, channel, errors])
+
+  // const validateEventPost = () => {
+  // if (!title) errors.push("Events must have a title")
+  // if (!date) errors.push("Please add a date")
+  // if (!tickets) errors.push("Please add a tickets")
+  // if (!price) errors.push("Please add a price")
+  // if (!category) errors.push("Please add a category")
+  // if (!description) errors.push("Please add a description")
+  // if (!server) errors.push("Please add a server")
+  // if (!channel) errors.push("Please add a channel")
+  // if (!(server && channel)) errors.push("Discord must have both a Server id and a Channel id.")
+
+  // }
+
 
   const postNewEvent = () => {
-    const formData = new FormData()
-    formData.append('image', image)
-    formData.append('title', title)
-    formData.append('description', description)
-    formData.append('date', date)
-    formData.append('price', price)
-    formData.append('tickets', tickets)
-    formData.append('category_id', Number(category))
-    formData.append('channel_id', channel)
-    formData.append('server_id', server)
-    dispatch(postEvent(formData))
+
+    if (errors.length === 0) {
+      const formData = new FormData()
+      formData.append('image', image)
+      formData.append('title', title)
+      formData.append('description', description)
+      formData.append('date', date)
+      formData.append('price', price)
+      formData.append('tickets', tickets)
+      formData.append('category_id', Number(category))
+      formData.append('channel_id', channel)
+      formData.append('server_id', server)
+
+      dispatch(postEvent(formData))
+    }
   }
 
 
@@ -80,6 +112,9 @@ const EventForm = () => {
       <div className="dsquare-1 dsquare"></div>
       {page === 1 &&
         <>
+          <ul>
+
+          </ul>
           <form className='event-form'>
             <div className='event-input'>
               <label htmlFor="Title">Title</label>
@@ -161,7 +196,7 @@ const EventForm = () => {
       {page === 4 &&
         <div className='page-four'>
           <form className='event-form'>
-            <h2 className='event-input' className='page-header'>Did we get this all right?</h2>
+            <h2 className='event-input page-header'>Did we get this all right?</h2>
             <div className='event-input'>title {title}</div>
             <div className='event-input'>description {description}</div>
             <div className='event-input'>category {categories[category - 1]}</div>
