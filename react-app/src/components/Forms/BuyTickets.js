@@ -10,9 +10,19 @@ const BuyTickets = () => {
   const total = (count * event.price)
 
   const confirmPurchase = async () => {
-    await fetch(`/api/registrations/add/${event.id}`)
-    dispatch(authenticate())
-    dispatch(hideModal())
+    const formData = new FormData()
+    formData.append('tickets', count)
+    formData.append('event_id', event.id)
+
+    const registration = await fetch(`/api/registrations`, { method: "POST", body: formData })
+    if (registration.ok) {
+      dispatch(authenticate())
+      dispatch(hideModal())
+      return
+    }
+
+    const reg = await registration.json()
+    console.log(reg.errors)
   }
 
   const delTicket = () => {

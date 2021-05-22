@@ -28,6 +28,7 @@ class Event(db.Model):
             'image_url': self.image_url,
             'category_id': self.category_id,
             'price': self.price,
+            'tickets': self.tickets,
             'host_id': self.host_id,
             'date': self.date,
             'server_id': self.server_id,
@@ -45,6 +46,14 @@ class Event(db.Model):
             'price': self.price,
             'date': self.date,
         }
+
+    def get_tickets(self):
+        return self.tickets
+
+    def sell_tickets(self, num):
+        if not self.tickets - num < 0:
+            self.tickets -= num
+            return self.tickets
 
     host = relationship(
         'User', back_populates='events')

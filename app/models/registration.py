@@ -9,6 +9,7 @@ class Registration(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     event_id = db.Column(db.Integer, db.ForeignKey(
         'events.id'), nullable=False)
+    tickets = db.Column(db.Integer, nullable=False, default=1)
 
     def get_event(self):
         return self.event_id
@@ -17,7 +18,8 @@ class Registration(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'event_id': self.event_id
+            'event_id': self.event_id,
+            'tickets': self.tickets
         }
 
     user = relationship('User', back_populates='registrations')
