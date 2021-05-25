@@ -1,3 +1,31 @@
+
+.profile-page-wrapper {
+  display:grid;
+  grid-template-columns: 5% 1fr 1fr 5%;
+  grid-template-rows: 2;
+  grid-template: 
+  '. photo stats .'
+  '. attend host .'
+}
+
+.photo {
+  grid-area: photo;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+.attend {
+  grid-area: attend;
+  max-width: 45%;
+}
+
+.host {
+  grid-area: host;
+  max-width: 45%;
+}
+
 .profile-avatar {
   width: 480px;
   height: 480px;
@@ -6,8 +34,12 @@
 
 .user-events {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+}
+
+.sidebar-username {
+  min-width: 100%;
 }
 
 .post-event-btn {

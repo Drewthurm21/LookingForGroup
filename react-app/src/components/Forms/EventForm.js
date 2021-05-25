@@ -18,7 +18,7 @@ const EventForm = () => {
   const [tickets, setTickets] = useState()
   const [server, setServer] = useState()
   const [channel, setChannel] = useState()
-  const [page, setPage] = useState()
+  const [page, setPage] = useState(1)
   const [errors, setErrors] = useState([])
 
   const categories = [
@@ -63,11 +63,9 @@ const EventForm = () => {
     if (!price) e.push("Please add a price")
     if (!category) e.push("Please add a category")
     if (!description) e.push("Please add a description")
-    if (!server) e.push("Please add a server")
-    if (!channel) e.push("Please add a channel")
-    if (!(server && channel)) e.push("Discord must have both a Server id and a Channel id.")
+    if ((!server && channel || server && !channel)) e.push("Discord must have both a Server id and a Channel id.")
     setErrors(e)
-  }, [title, date, tickets, price, category, description, server, channel, errors])
+  }, [title, date, tickets, price, category, description, server, channel])
 
   // const validateEventPost = () => {
   // if (!title) errors.push("Events must have a title")
@@ -84,27 +82,16 @@ const EventForm = () => {
 
 
   const postNewEvent = () => {
-
     if (errors.length === 0) {
-      const formData = new FormData()
-      formData.append('image', image)
-      formData.append('title', title)
-      formData.append('description', description)
-      formData.append('date', date)
-      formData.append('price', price)
-      formData.append('tickets', tickets)
-      formData.append('category_id', Number(category))
-      formData.append('channel_id', channel)
-      formData.append('server_id', server)
-
-      dispatch(postEvent(formData))
+      dispatch(postEvent(
+        image, title, description, date, price, tickets, category, channel, server
+      ))
     }
   }
 
 
   return (
     <div className='event-form'>
-      <h2 className='page-header'>Hey {user.username}, Let's post an event!</h2>
       <div className="square-1 square"></div>
       <div className="square-2 square"></div>
       <div className="square-3 square"></div>
@@ -112,9 +99,7 @@ const EventForm = () => {
       <div className="dsquare-1 dsquare"></div>
       {page === 1 &&
         <>
-          <ul>
-
-          </ul>
+          <h2 className='page-header'>Hey {user.username}, Let's post an event!</h2>
           <form className='event-form'>
             <div className='event-input'>
               <label htmlFor="Title">Title</label>
@@ -193,7 +178,19 @@ const EventForm = () => {
           </div>
         </div>
       }
-      {page === 4 &&
+      {page === 4 && errors.length > 0 &&
+        <div>
+          <ul>
+            {errors.map(error => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+          <div className='event-btns'>
+            <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>
+          </div>
+        </div>
+      }
+      {page === 4 && errors.length === 0 &&
         <div className='page-four'>
           <form className='event-form'>
             <h2 className='event-input page-header'>Did we get this all right?</h2>
@@ -205,6 +202,7 @@ const EventForm = () => {
             <div className='event-input'>tickets {tickets}</div>
             <div className='event-input'>server {server}</div>
             <div className='event-input'>channel {channel}</div>
+            <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>
             <div className='event-btns'>
               <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>
               <div className='event-btn2 event-btn' onClick={postNewEvent}>Confirm!</div>

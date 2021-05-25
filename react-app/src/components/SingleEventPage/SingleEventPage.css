@@ -1,7 +1,38 @@
+
 .event-page-wrapper {
   padding: 8px;
   margin:12px;
+  display:grid;
+  grid-gap: 20px;
+  grid-template-columns: 5% 1fr 1fr 5%;
+  grid-template-rows: 2;
+  grid-template: 
+  '. img-bar img-bar .'
+  '. comms comms .'
 }
+
+.img-bar {
+  grid-area: img-bar;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.comms::-webkit-scrollbar {
+  display: none;
+}
+
+.comms {
+  grid-area: comms;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-height:1200px; 
+  overflow-y: scroll;
+}
+
 
 .sidebar-wrapper {
   display:flex;
@@ -20,24 +51,18 @@
 }
 
 .single-event-img {
-  height:640px;
-  width:1024px;
+  min-height: 580px;
+  max-height:640px;
+  width:100%;
+  max-width:1024px;
 }
 
-.image-sidebar {
-  display: flex;
-  color: white;
-  flex-direction:column;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
-}
-
-.comms-div {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  max-height: 700px;
+.discord-portal {
+  justify-self: center;
+  min-width:700px;
+  max-width: 80%;
+  min-height: 580px;
+  max-height: 780px;
 }
 
 .comments-section {
@@ -47,6 +72,7 @@
   overflow-y: Scroll;
   width:700px;
 }
+
 .comments-section::-webkit-scrollbar {
   display: none;
 }
@@ -76,7 +102,7 @@ textarea {
 }
 
 .widgetbot {
-  height: 680px;
-  width: 1024px;
+  height: 100%;
+  width:100%;
 }
 

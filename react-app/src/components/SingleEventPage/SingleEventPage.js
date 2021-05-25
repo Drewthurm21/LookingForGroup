@@ -43,9 +43,11 @@ const SingleEventPage = () => {
   return (
     <>
       <div className='event-page-wrapper'>
-        <div className='image-sidebar'>
-          <img className='single-event-img' alt='Event-Photo' src={event.image_url}></img>
-          <div className='sidebar-wrapper'>
+        <div className='img-bar'>
+
+          <img className='single-event-img photo' alt='' src={event.image_url}></img>
+
+          <div className='sidebar-wrapper sidebar'>
             <h1>{event.title}</h1>
             <br></br>
             <h3>{event.description}</h3>
@@ -57,12 +59,15 @@ const SingleEventPage = () => {
               onClick={buyTickets} >{event.price > 0 ? `Buy Tickets!` : `Register Now!`}</h3>}
           </div>
         </div>
-        <div className='comms-div'>
-          <div className='discord-portal'>
+
+        <div className='comms'>
+
+          <div className='discord-portal discord'>
             {event.server_id && <DiscordPortal server_id={event.server_id} channel_id={event.channel_id} />}
             {!event.server_id && <DiscordPortal />}
           </div>
-          <div className='comments-section'>
+
+          <div className='comments-section comment'>
             {user &&
               <div className='post-comment-btn' onClick={handlePost} >
                 {!posting && <div>POST A COMMENT</div>}
@@ -74,6 +79,7 @@ const SingleEventPage = () => {
             </div>
           </div>
         </div>
+
       </div>
     </>
   )

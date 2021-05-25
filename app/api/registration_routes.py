@@ -1,12 +1,12 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, User, Event, Registration, Comment
+from app.models import db, Event, Registration
 
 registration_routes = Blueprint('registrations', __name__)
 
 
 # return all registrations
-@registration_routes.route('/')
+@registration_routes.route('')
 def get_regs():
     all_registrations = Registration.query.all()
     registrations = [registration.to_dict()
@@ -31,13 +31,21 @@ def get_user_regs(id):
 
 
 # register a user for an event
-@registration_routes.route('/add/<int:id>')
+@registration_routes.route('', methods=["POST"])
 @login_required
-def register_user(id):
-    registration = Registration(
-        user_id=current_user.id,
-        event_id=id,
-    )
-    db.session.add(registration)
-    db.session.commit()
-    return registration.to_dict()
+def register_user():
+    event_id = request.form['event_id']
+    tickets = int(request.form['tickets'])
+    event = Event.query.get(event_id)
+    if (event.tickets - tickets) >= 0:
+        event.tickets = event.tickets - tickets
+        registration = Registration(
+            user_id=current_user.id,
+            event_id=event_id,
+            tickets=tickets
+        )
+        db.session.add(event)
+        db.session.add(registration)
+        db.session.commit()
+        return registration.to_dict()
+    return {'errors': 'Not enough tickets left =('}

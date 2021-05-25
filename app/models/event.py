@@ -16,7 +16,7 @@ class Event(db.Model):
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     date = db.Column(
         db.DateTime, default=datetime.datetime.utcnow, nullable=False)
-    tickets = db.Column(db.Integer, nullable=False, default=0)
+    tickets = db.Column(db.Integer, nullable=False, default=100)
     server_id = db.Column(db.String(64))
     channel_id = db.Column(db.String(64))
 
@@ -28,6 +28,7 @@ class Event(db.Model):
             'image_url': self.image_url,
             'category_id': self.category_id,
             'price': self.price,
+            'tickets': self.tickets,
             'host_id': self.host_id,
             'date': self.date,
             'server_id': self.server_id,
@@ -44,7 +45,17 @@ class Event(db.Model):
             'category_id': self.category_id,
             'price': self.price,
             'date': self.date,
+            'host_id': self.host_id,
+            'tickets': self.tickets
         }
+
+    def get_tickets(self):
+        return self.tickets
+
+    def sell_tickets(self, num):
+        if not self.tickets - num < 0:
+            self.tickets -= num
+            return self.tickets
 
     host = relationship(
         'User', back_populates='events')

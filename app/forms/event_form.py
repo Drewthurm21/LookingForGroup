@@ -8,7 +8,7 @@ import datetime
 class EventForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
-    image_url = StringField('image_url')
+    image = StringField('image')
     category_id = IntegerField('category_id', validators=[DataRequired()])
     price = DecimalField('price')
     date = DateTimeField('date', validators=[DataRequired()])
