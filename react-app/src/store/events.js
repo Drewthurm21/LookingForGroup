@@ -48,11 +48,22 @@ export const getUserEvents = (id) => async (dispatch) => {
 }
 
 
-export const postEvent = (formData) => async (dispatch) => {
+export const postEvent = (image, title, description, date, price, tickets, category, channel, server) => async (dispatch) => {
+  const formData = new FormData()
+  formData.append('image', image)
+  formData.append('title', title)
+  formData.append('description', description)
+  formData.append('date', date)
+  formData.append('price', Number(price))
+  formData.append('tickets', Number(tickets))
+  formData.append('category_id', Number(category))
+  formData.append('server_id', server)
+  formData.append('channel_id', channel)
+
   const response = await fetch('/api/events', { method: "POST", body: formData })
   if (response.ok) {
     const { event } = await response.json()
-    dispatch(authenticate())
+    // dispatch(authenticate())
     return event
   }
 }

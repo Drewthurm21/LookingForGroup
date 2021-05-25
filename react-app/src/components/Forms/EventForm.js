@@ -82,27 +82,16 @@ const EventForm = () => {
 
 
   const postNewEvent = () => {
-    console.log(errors)
     if (errors.length === 0) {
-      const formData = new FormData()
-      formData.append('image', image)
-      formData.append('title', title)
-      formData.append('description', description)
-      formData.append('date', date)
-      formData.append('price', price)
-      formData.append('tickets', tickets)
-      formData.append('category_id', Number(category))
-      formData.append('channel_id', channel)
-      formData.append('server_id', server)
-
-      dispatch(postEvent(formData))
+      dispatch(postEvent(
+        image, title, description, date, price, tickets, category, channel, server
+      ))
     }
   }
 
 
   return (
     <div className='event-form'>
-      <h2 className='page-header'>Hey {user.username}, Let's post an event!</h2>
       <div className="square-1 square"></div>
       <div className="square-2 square"></div>
       <div className="square-3 square"></div>
@@ -110,6 +99,7 @@ const EventForm = () => {
       <div className="dsquare-1 dsquare"></div>
       {page === 1 &&
         <>
+          <h2 className='page-header'>Hey {user.username}, Let's post an event!</h2>
           <form className='event-form'>
             <div className='event-input'>
               <label htmlFor="Title">Title</label>
