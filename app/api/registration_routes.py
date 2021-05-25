@@ -35,14 +35,16 @@ def get_user_regs(id):
 @login_required
 def register_user():
     event_id = request.form['event_id']
-    tickets = request.form['tickets']
-    event = Event.query.get(event_id).to_dict()
-    if (event.get_tickets() - tickets) >= 0:
+    tickets = int(request.form['tickets'])
+    event = Event.query.get(event_id)
+    if (event.tickets - tickets) >= 0:
+        event.tickets = event.tickets - tickets
         registration = Registration(
             user_id=current_user.id,
             event_id=event_id,
             tickets=tickets
         )
+        db.session.add(event)
         db.session.add(registration)
         db.session.commit()
         return registration.to_dict()

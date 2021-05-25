@@ -16,7 +16,7 @@ class Event(db.Model):
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     date = db.Column(
         db.DateTime, default=datetime.datetime.utcnow, nullable=False)
-    tickets = db.Column(db.Integer, nullable=False, default=0)
+    tickets = db.Column(db.Integer, nullable=False, default=100)
     server_id = db.Column(db.String(64))
     channel_id = db.Column(db.String(64))
 
@@ -45,7 +45,8 @@ class Event(db.Model):
             'category_id': self.category_id,
             'price': self.price,
             'date': self.date,
-            'host_id': self.host_id
+            'host_id': self.host_id,
+            'tickets': self.tickets
         }
 
     def get_tickets(self):

@@ -11,6 +11,8 @@ const BuyTickets = () => {
 
   const confirmPurchase = async () => {
     const formData = new FormData()
+    console.log(typeof count)
+    console.log(typeof event.id)
     formData.append('tickets', count)
     formData.append('event_id', event.id)
 
