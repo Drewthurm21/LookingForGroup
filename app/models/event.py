@@ -45,6 +45,7 @@ class Event(db.Model):
             'category_id': self.category_id,
             'price': self.price,
             'date': self.date,
+            'host_id': self.host_id
         }
 
     def get_tickets(self):

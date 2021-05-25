@@ -17,20 +17,24 @@ function ProfilePage() {
 
   return user && events && (
     <div className='profile-page-wrapper'>
-      <div className='image-stats'>
-        <img className='profile-avatar' src={user.avatars} alt=''></img>
-
+      <img className='profile-avatar photo' src={user.avatars} alt=''></img>
+      <div className='profile-sidebar stats'>
+        <div className='sidebar-username'>{user.username}</div>
+        <div>STATS</div>
+        <div className='post-event-btn' onClick={startEventPost}> POST EVENT</div>
       </div>
-      <div className='profile-username'>{user.username}</div>
-      <div className='post-event-btn' onClick={startEventPost}> POST EVENT</div>
       <div>{user.registrations.length}</div>
-      <div className='user-events'>
+      <div className='user-events attend'>
         {events.map(event => {
           if (user.registrations.includes(event.id)) {
             return <EventCardLong event={event} key={event.id} />
           }
           return null
         })}
+
+      </div>
+      <div className='user-events host'>
+        {events.map(event => user.id === event.host_id ? <EventCardLong event={event} key={event.id} /> : null)}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Event
+from app.models import db, Event, User
 from app.forms import EventForm
 from app.aws import get_unique_filename, upload_file_to_s3
 
@@ -15,7 +15,23 @@ def events():
     return {'events': events}
 
 
+# return events hosted by user
+@event_routes.route('/user/<int:id>')
+def events_by_user(id):
+    registered_events = []
+    user = User.query.get(id).to_dict()
+    for event_id in user['registrations']:
+        registered_events.append(Event.query.get(event_id).to_simple_dict())
+    hosted_events = Event.query.filter_by(host_id=id)
+    host_events = [event.to_simple_dict() for event in hosted_events]
+    return {
+        'hosted_events': host_events,
+        'registered_events': registered_events
+    }
+
 # return a single event
+
+
 @event_routes.route('/<int:id>')
 def event(id):
     event = Event.query.get(id)

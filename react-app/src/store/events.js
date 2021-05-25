@@ -1,11 +1,17 @@
 import { authenticate } from './session'
 
 const SET_EVENTS = 'events/SET_EVENTS'
+const SET_USER_EVENTS = 'events/SET_USER_EVENTS'
 const SET_EVENT = 'events/SET_EVENT'
 
 
 const setEvents = (events) => ({
   type: SET_EVENTS,
+  payload: events
+})
+
+const setUserEvents = (events) => ({
+  type: SET_USER_EVENTS,
   payload: events
 })
 
@@ -34,6 +40,14 @@ export const getAllEvents = () => async (dispatch) => {
 }
 
 
+export const getUserEvents = (id) => async (dispatch) => {
+  const response = await fetch(`/api/events/user/${id}`)
+  const events = await response.json()
+  console.log(events)
+  dispatch(setUserEvents(events))
+}
+
+
 export const postEvent = (formData) => async (dispatch) => {
   const response = await fetch('/api/events', { method: "POST", body: formData })
   if (response.ok) {
@@ -47,6 +61,7 @@ export const postEvent = (formData) => async (dispatch) => {
 const initialState = {
   event: null,
   events: null,
+  user_events: null
 }
 
 
@@ -61,6 +76,14 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         events: action.payload
+      }
+    case SET_USER_EVENTS:
+      return {
+        ...state,
+        userEvents: {
+          hostedEvents: [...action.payload.hosted_events],
+          registeredEvents: [...action.payload.registered_events]
+        }
       }
     default:
       return state
