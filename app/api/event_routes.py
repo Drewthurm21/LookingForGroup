@@ -60,9 +60,6 @@ def post_event():
     """
     form = EventForm()
     url = 'https://github.com/Drewthurm21/LookingForGroup/blob/main/images/main_logo.PNG?raw=true'
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if not form.validate_on_submit():
-        print(f'\n\n\n\n\n\n\n\n\n  !INVALID FORM!  \n\n\n\n\n\n\n\n\n')
 
     if ('image' in request.files):
         image = request.files['image']
@@ -77,7 +74,7 @@ def post_event():
         category_id=form.data['category_id'],
         price=form.data['price'],
         host_id=current_user.id,
-        date=form.data['date'],
+        date=request.form['date'],
         server_id=form.data['server_id'],
         channel_id=form.data['channel_id'],
         tickets=form.data['tickets']
