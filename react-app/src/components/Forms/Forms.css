@@ -138,6 +138,21 @@
   color: #fff;
   justify-self: flex-start;
 }
+.event-form .event-input select {
+  align-self:flex-start;
+  width: 285px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+}
 
 .event-form .event-input input,
 .login-form .login-input input,

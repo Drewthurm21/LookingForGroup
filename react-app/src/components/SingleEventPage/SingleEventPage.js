@@ -55,6 +55,8 @@ const SingleEventPage = () => {
             <h3>{`$${event.price}`}</h3>
             <br></br>
             {user && user.registrations.includes(event.id) && <h3>You're all set!</h3>}
+            {user && user.registrations.includes(event.id) && <h3 className='registration-btn'
+              onClick={buyTickets} >{event.price > 0 ? `Buy More Tickets!` : `Reserve More Seats!`}</h3>}
             {user && !user.registrations.includes(event.id) && <h3 className='registration-btn'
               onClick={buyTickets} >{event.price > 0 ? `Buy Tickets!` : `Register Now!`}</h3>}
           </div>

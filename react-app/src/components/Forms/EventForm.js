@@ -12,7 +12,7 @@ const EventForm = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState(null)
-  const [category, setCategory] = useState(1)
+  const [category, setCategory] = useState(0)
   const [price, setPrice] = useState(0)
   const [date, setDate] = useState('')
   const [tickets, setTickets] = useState(0)
@@ -60,7 +60,7 @@ const EventForm = () => {
     if (!title) e.push("Events must have a title.")
     if (!date) e.push("Please add a date.")
     if (!tickets) e.push("Please set the number of tickets.")
-    if (!price) e.push("Please select the price of tickets.")
+    if (price) e.push("Please select the price of tickets.")
     if (!category) e.push("Please add a category.")
     if (!description) e.push("Please add a description.")
     if ((!server && channel || server && !channel)) e.push("Discord must have both a Server id and a Channel id.")
@@ -112,7 +112,7 @@ const EventForm = () => {
               <select className='event-input' value={category} onChange={(e) => setCategory(e.target.value)} >
                 <option value={0} disabled>What game are we playing?</option>
                 {categories.map((category, i) => (
-                  <option value={i + 1} key={i}>{category}</option>
+                  <option className='event-input' value={i + 1} key={i}>{category}</option>
                 ))}
               </select>
             </div>

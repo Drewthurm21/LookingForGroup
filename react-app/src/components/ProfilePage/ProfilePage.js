@@ -15,25 +15,34 @@ function ProfilePage() {
     dispatch(showModal())
   }
 
+
+
   return user && events && (
     <div className='profile-page-wrapper'>
       <img className='profile-avatar photo' src={user.avatars} alt=''></img>
       <div className='profile-sidebar stats'>
-        <div className='sidebar-username'>{user.username}</div>
-        <div>STATS</div>
-        <div className='post-event-btn' onClick={startEventPost}> POST EVENT</div>
-      </div>
-      <div>{user.registrations.length}</div>
-      <div className='user-events attend'>
-        {events.map(event => {
-          if (user.registrations.includes(event.id)) {
-            return <EventCardLong event={event} key={event.id} />
-          }
-          return null
-        })}
+        <div className='sidebar-wrapper sidebar'>
+          <h1>Welcome {user.username}</h1>
+          <br></br>
+          <h3></h3>
+          <br></br>
+          <br></br>
 
+          <div className='post-event-btn' onClick={startEventPost}> POST EVENT</div>
+        </div>
+      </div>
+      <div className='user-events attend'>
+        <div>
+          <p>You're registered for {user.registrations.length} events!</p>
+        </div>
+        <br></br>
+        {events.map(event => user.registrations.includes(event.id) ? <EventCardLong event={event} key={event.id} /> : null)}
       </div>
       <div className='user-events host'>
+        <div>
+          <p>You're hosting...</p>
+        </div>
+        <br></br>
         {events.map(event => user.id === event.host_id ? <EventCardLong event={event} key={event.id} /> : null)}
       </div>
     </div>

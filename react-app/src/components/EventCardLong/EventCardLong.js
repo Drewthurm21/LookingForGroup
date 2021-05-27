@@ -7,7 +7,10 @@ const EventCardLong = ({ event }) => {
 
   return (
     <div className='ecl-wrapper'>
-      <div className='ecl-inner-card' style={{ backgroundImage: 'url(' + event.image_url + ')' }}>
+      <div className='ecl-inner-card' style={{
+        backgroundImage: 'url(' + event.image_url + ')',
+        backgroundSize: `cover`
+      }}>
         <NavLink className='event-card-link' to={`/events/${event.id}`} >
           <div className='ecl-card-box'>
             <div className='ecl-card-content'>

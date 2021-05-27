@@ -13,7 +13,7 @@ const EditCommentForm = ({ comment, setEditing }) => {
   };
   const delCom = async (e) => {
     e.preventDefault();
-    dispatch(deleteComment(content, comment.id))
+    dispatch(deleteComment(comment.id))
     setEditing(false)
   };
 

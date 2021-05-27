@@ -18,12 +18,10 @@
 
 .attend {
   grid-area: attend;
-  max-width: 45%;
 }
 
 .host {
   grid-area: host;
-  max-width: 45%;
 }
 
 .profile-avatar {
@@ -33,13 +31,27 @@
 }
 
 .user-events {
+  width: 95%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-.sidebar-username {
-  min-width: 100%;
+.sidebar-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 
+  inset 5px 5px 15px rgba(0,0,0,0.2),
+  inset -5px -5px 15px rgba(255,255,255,0.1),
+        5px 5px 15px rgba(0,0,0,0.2),
+        -5px -5px 15px rgba(255,255,255,0.1);
+  margin: 15px;
 }
 
 .post-event-btn {
