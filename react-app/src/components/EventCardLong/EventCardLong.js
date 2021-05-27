@@ -16,7 +16,6 @@ const EventCardLong = ({ event }) => {
               <div>{event.date.slice(0, 16)}</div>
             </div>
           </div>
-          {/* <h4 className='ecl-price'>{`${event.date.slice(0, 16)}`}</h4> */}
         </NavLink>
       </div>
     </div >

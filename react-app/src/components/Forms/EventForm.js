@@ -57,28 +57,15 @@ const EventForm = () => {
 
   useEffect(() => {
     let e = []
-    if (!title) e.push("Events must have a title")
-    if (!date) e.push("Please add a date")
-    if (!tickets) e.push("Please add a tickets")
-    if (!price) e.push("Please add a price")
-    if (!category) e.push("Please add a category")
-    if (!description) e.push("Please add a description")
+    if (!title) e.push("Events must have a title.")
+    if (!date) e.push("Please add a date.")
+    if (!tickets) e.push("Please set the number of tickets.")
+    if (!price) e.push("Please select the price of tickets.")
+    if (!category) e.push("Please add a category.")
+    if (!description) e.push("Please add a description.")
     if ((!server && channel || server && !channel)) e.push("Discord must have both a Server id and a Channel id.")
     setErrors(e)
   }, [title, date, tickets, price, category, description, server, channel])
-
-  // const validateEventPost = () => {
-  // if (!title) errors.push("Events must have a title")
-  // if (!date) errors.push("Please add a date")
-  // if (!tickets) errors.push("Please add a tickets")
-  // if (!price) errors.push("Please add a price")
-  // if (!category) errors.push("Please add a category")
-  // if (!description) errors.push("Please add a description")
-  // if (!server) errors.push("Please add a server")
-  // if (!channel) errors.push("Please add a channel")
-  // if (!(server && channel)) errors.push("Discord must have both a Server id and a Channel id.")
-
-  // }
 
 
   const postNewEvent = () => {
@@ -117,7 +104,7 @@ const EventForm = () => {
                 placeholder="Select Image"
                 accept="image/*"
                 onChange={updateImage}
-                className="signup-input-image"
+                className="signup-input"
               ></input>
             </div>
             <div className='event-input'>
@@ -182,7 +169,12 @@ const EventForm = () => {
         <div>
           <ul>
             {errors.map(error => (
-              <li key={error}>{error}</li>
+              <>
+                <div>
+                  <li key={error}>{error}</li>
+                </div>
+                <br></br>
+              </>
             ))}
           </ul>
           <div className='event-btns'>
@@ -194,14 +186,14 @@ const EventForm = () => {
         <div className='page-four'>
           <form className='event-form'>
             <h2 className='event-input page-header'>Did we get this all right?</h2>
-            <div className='event-input'>title {title}</div>
-            <div className='event-input'>description {description}</div>
-            <div className='event-input'>category {categories[category - 1]}</div>
-            <div className='event-input'>date {date}</div>
-            <div className='event-input'>price {price}</div>
-            <div className='event-input'>tickets {tickets}</div>
-            <div className='event-input'>server {server}</div>
-            <div className='event-input'>channel {channel}</div>
+            <div className='event-input'>Title {title}</div>
+            <div className='event-input'>Description {description}</div>
+            <div className='event-input'>Category {categories[category - 1]}</div>
+            <div className='event-input'>Date {String(new Date(date))}</div>
+            <div className='event-input'>Price {price ? price : 'This is a free event!'}</div>
+            <div className='event-input'>Tickets {tickets ? tickets : 'No maximum number of participants.'}</div>
+            <div className='event-input'>Server {server ? server : 'No server submitted.'}</div>
+            <div className='event-input'>Channel {channel ? channel : 'No channel submitted'}</div>
             <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>
             <div className='event-btns'>
               <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>

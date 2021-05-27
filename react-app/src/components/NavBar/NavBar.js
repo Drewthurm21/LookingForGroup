@@ -41,14 +41,16 @@ const NavBar = () => {
         </div>
           </div>
         </>}
-      <div className='login-btn'>
-        <NavLink to='/profile' activeClassName='active'>
-          PROFILE
+      {user && <>
+        <div className='login-btn'>
+          <NavLink to='/profile' activeClassName='active'>
+            PROFILE
         </NavLink>
-      </div>
-      {user && <div>
-        <LogoutButton />
-      </div>}
+        </div>
+        <div>
+          <LogoutButton />
+        </div>
+      </>}
     </nav>
   );
 }

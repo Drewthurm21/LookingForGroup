@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
-import { hideModal } from "../../store/modal";
+import { hideModal, setCurrentModal } from "../../store/modal";
+import LoginForm from '../Forms/LoginForm'
 import "./Forms.css";
 
 
@@ -26,6 +27,10 @@ const SignUpForm = () => {
       history.push("/home");
     }
   };
+
+  const toLogin = async (e) => {
+    dispatch(setCurrentModal(LoginForm))
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -57,9 +62,9 @@ const SignUpForm = () => {
       <div className="square-2 square"></div>
       <div className="square-3 square"></div>
       <div className="square-4 square"></div>
-      <div className="square-5 square"></div>
+      <div className="dsquare-1 square"></div>
       <h2>SignUp</h2>
-      <form onSubmit={onSignUp}>
+      <form>
         <div></div>
         <div className="signup-input">
           <input
@@ -79,7 +84,7 @@ const SignUpForm = () => {
             value={email}
           ></input>
         </div>
-        <div className="signup-div-image">
+        <div className="signup-input">
           <input
             name="profile-image"
             type="file"
@@ -109,7 +114,10 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className="signup-input">
-          <input type="submit" value="SignUp" />
+          <p className='login-btn' onClick={onSignUp} value="SignUp" >Signup</p>
+        </div>
+        <div className="signup-input">
+          <p className='login-btn' onClick={toLogin} value="Login" >Login</p>
         </div>
       </form>
     </div>

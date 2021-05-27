@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
-import { hideModal } from '../../store/modal'
+import { hideModal, setCurrentModal, showModal } from '../../store/modal'
 import { useDispatch, useSelector } from 'react-redux'
+import SignUpForm from '../Forms/SignUpForm'
 
 import './Forms.css'
 
@@ -32,6 +33,10 @@ const LoginForm = () => {
     }
     dispatch(hideModal())
   };
+
+  const toSignup = async (e) => {
+    dispatch(setCurrentModal(SignUpForm))
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -82,7 +87,7 @@ const LoginForm = () => {
           <p className='login-btn' onClick={onLogin} type="submit">Login</p>
         </div>
         <div className='login-input'>
-          <p className='login-btn' type="submit">Sign up</p>
+          <p className='login-btn' onClick={toSignup} type="submit">Sign up</p>
         </div>
         <div className='login-input'>
           <p className='login-btn' onClick={demoLogin} type="submit">Demo Login</p>
