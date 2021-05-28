@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { postEvent } from '../../store/events'
+import { getUserEvents, postEvent } from '../../store/events'
 import { hideModal } from '../../store/modal'
 
 import './Forms.css'
@@ -13,9 +13,9 @@ const EventForm = () => {
   const [description, setDescription] = useState('')
   const [image, setImage] = useState(null)
   const [category, setCategory] = useState(0)
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState(5.99)
   const [date, setDate] = useState('')
-  const [tickets, setTickets] = useState(0)
+  const [tickets, setTickets] = useState(100)
   const [server, setServer] = useState('')
   const [channel, setChannel] = useState('')
   const [page, setPage] = useState(1)
@@ -60,7 +60,7 @@ const EventForm = () => {
     if (!title) e.push('Events must have a title.')
     if (!date) e.push('Please add a date.')
     if (!tickets) e.push('Please set the number of tickets.')
-    if (price) e.push('Please select the price of tickets.')
+    if (!price) e.push('Please select the price of tickets.')
     if (!category) e.push('Please add a category.')
     if (!description) e.push('Please add a description.')
     if ((!server && channel || server && !channel)) e.push('Discord must have both a Server id and a Channel id.')
@@ -73,6 +73,7 @@ const EventForm = () => {
       dispatch(postEvent(
         image, title, description, date, price, tickets, category, channel, server
       ))
+      dispatch(getUserEvents(user.id))
       setPage(5)
     }
   }

@@ -19,14 +19,19 @@ function ProfilePage() {
 
   useEffect(() => {
     dispatch(getUserEvents(user.id))
-  }, [loaded])
+    setLoaded(true)
+  }, [loaded, user_events])
 
+  if (loaded) {
 
+  }
+
+  const event_ids = []
   return user && user_events && (
     <div className='profile-page-wrapper'>
       <div className='topp'>
         <div>
-          <img className='profile-avatar photo' src={user.avatars} alt=''></img>
+          <img className='profile-avatar photo' src={user.image_url ? user.image_url : user.avatars} alt=''></img>
         </div>
         <div className='profile-sidebar stats'>
           <div className='sidebar-wrapper sidebar'>
@@ -48,7 +53,12 @@ function ProfilePage() {
           </div>
           <br></br>
           <div className='event-cards'>
-            {user_events.registeredEvents.map(event => <EventCardLong event={event} key={event.id} />)}
+            {user_events.registeredEvents.map(event => {
+              if (!event_ids.includes(event.id)) {
+                event_ids.push(event.id)
+                return <EventCardLong event={event} key={event.id} />
+              }
+            })}
           </div>
         </div>
         <div className='user-events host'>
@@ -57,7 +67,7 @@ function ProfilePage() {
           </div>
           <br></br>
           <div className='event-cards'>
-            {user_events.hostedEvents.map(event => <EventCardLong event={event} key={event.id} />)}
+            {user_events.hostedEvents.map(event => <EventCardLong event={event} key={event.id} />).reverse()}
           </div>
         </div>
       </div>

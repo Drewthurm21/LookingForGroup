@@ -30,7 +30,6 @@ def events_by_user(id):
     }
 
 
-# return a single event
 @event_routes.route('/<int:id>')
 def event(id):
     """
@@ -40,7 +39,6 @@ def event(id):
     return event.to_dict()
 
 
-# delete an event
 @event_routes.route('/<int:id>', methods=['DELETE'])
 def drop_event(id):
     """

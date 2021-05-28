@@ -50,9 +50,12 @@ const SingleEventPage = () => {
           <div className='sidebar-wrapper sidebar'>
             <h1>{event.title}</h1>
             <br></br>
-            <h3>{event.description}</h3>
+            <h2>{event.description}</h2>
             <br></br>
-            <h3>{`$${event.price}`}</h3>
+            <h2>{`Tickets cost $${event.price}`}</h2>
+            {event.tickets < 10 ? (<h1>This event is almost sold out!</h1>) : (<h3>There are {event.tickets}  tickets left.</h3>)}
+            {event.tickets < 10 ? (<h1>There are only {event.tickets} tickets left!</h1>) : null}
+            {/* <h3>{`There are ${event.tickets}  tickets left.`}</h3> */}
             <br></br>
             {user && user.registrations.includes(event.id) && <h3>You're all set!</h3>}
             {user && user.registrations.includes(event.id) && <h3 className='registration-btn'
