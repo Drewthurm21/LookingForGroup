@@ -63,6 +63,10 @@
   text-align: center;
 }
 
+.event-btns {
+  margin-top: 10px;
+}
+
 .event-btn1 {
   position:absolute;
   bottom: 10px;

@@ -15,7 +15,7 @@ def events():
     return {'events': events}
 
 
-# return events hosted by user
+# return all events relevant to a user
 @event_routes.route('/user/<int:id>')
 def events_by_user(id):
     registered_events = []

@@ -73,6 +73,7 @@ const EventForm = () => {
       dispatch(postEvent(
         image, title, description, date, price, tickets, category, channel, server
       ))
+      setPage(5)
     }
   }
 
@@ -198,6 +199,25 @@ const EventForm = () => {
             <div className='event-btns'>
               <div className='event-btn1 event-btn' onClick={prevPage}>Back</div>
               <div className='event-btn2 event-btn' onClick={postNewEvent}>Confirm!</div>
+            </div>
+          </form>
+        </div>
+      }
+      {page === 5 &&
+        <div className='page-four'>
+          <form className='event-form'>
+            <h2 className='event-input page-header'>Event Confirmed!</h2>
+            <h3 className='event-input page-header'>Here are the event details...</h3>
+            <div className='event-input'>Title {title}</div>
+            <div className='event-input'>Description {description}</div>
+            <div className='event-input'>Category {categories[category - 1]}</div>
+            <div className='event-input'>Date {String(new Date(date))}</div>
+            <div className='event-input'>Price {price ? price : 'This is a free event!'}</div>
+            <div className='event-input'>Tickets {tickets ? tickets : 'No maximum number of participants.'}</div>
+            <div className='event-input'>Server {server ? server : 'No server submitted.'}</div>
+            <div className='event-input'>Channel {channel ? channel : 'No channel submitted'}</div>
+            <div className='event-btns'>
+              <div className='event-btn2 event-btn' onClick={cancelPost}>Close</div>
             </div>
           </form>
         </div>
