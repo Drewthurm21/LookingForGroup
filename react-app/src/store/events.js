@@ -92,7 +92,7 @@ export const reducer = (state = initialState, action) => {
     case SET_USER_EVENTS:
       return {
         ...state,
-        userEvents: {
+        user_events: {
           hostedEvents: [...action.payload.hosted_events],
           registeredEvents: [...action.payload.registered_events]
         }

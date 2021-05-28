@@ -4,6 +4,9 @@ import './EventCardLong.css'
 
 const EventCardLong = ({ event }) => {
 
+  const cancelRegistration = () => {
+
+  }
 
   return (
     <div className='ecl-wrapper'>
@@ -20,6 +23,7 @@ const EventCardLong = ({ event }) => {
             </div>
           </div>
         </NavLink>
+        <div onClick={() => console.log("yo")}>Cancel</div>
       </div>
     </div >
 
