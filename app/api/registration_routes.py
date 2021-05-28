@@ -49,3 +49,6 @@ def register_user():
         db.session.commit()
         return registration.to_dict()
     return {'errors': 'Not enough tickets left =('}
+
+
+#

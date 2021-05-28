@@ -24,8 +24,8 @@ const EditCommentForm = ({ comment, setEditing }) => {
         <textarea className='textbox' type="text" onChange={(e) => { setContent(e.target.value); }} value={content}></textarea>
       </div>
       <div className="button-div">
-        <div onClick={editCom} type="submit">submit</div>
-        <div onClick={delCom} type="submit">delete</div>
+        <div onClick={editCom} type="submit">Submit</div>
+        <div onClick={delCom} type="submit">Delete</div>
       </div>
     </form>
   );
