@@ -25,7 +25,9 @@ function ProfilePage() {
   return user && user_events && (
     <div className='profile-page-wrapper'>
       <div className='topp'>
-        <img className='profile-avatar photo' src={user.avatars} alt=''></img>
+        <div>
+          <img className='profile-avatar photo' src={user.avatars} alt=''></img>
+        </div>
         <div className='profile-sidebar stats'>
           <div className='sidebar-wrapper sidebar'>
             <h1>Welcome {user.username}</h1>
