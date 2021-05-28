@@ -1,7 +1,7 @@
 
 .homepage-wrapper {
-  width: 80vw;
-  margin-left: 10vw;
+  width: 95vw;
+  margin: 1vw;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -9,13 +9,14 @@
 }
 
 .carousel {
-  margin-top: 160px;
+  margin-top: 90px;
 }
+
 .crsl-category {
   color: rgb(70, 71, 78)
 }
 
-.carousels-wrapper {
+.carousel-wrapper {
   display:flex;
   flex-direction: column;
   align-items: center;

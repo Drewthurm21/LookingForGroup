@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { hideModal } from '../../store/modal'
-import { authenticate } from '../../store/session'
+import { getOneEvent } from '../../store/events'
 
 const BuyTickets = () => {
   const dispatch = useDispatch()
@@ -11,20 +11,16 @@ const BuyTickets = () => {
 
   const confirmPurchase = async () => {
     const formData = new FormData()
-    console.log(typeof count)
-    console.log(typeof event.id)
     formData.append('tickets', count)
     formData.append('event_id', event.id)
 
     const registration = await fetch(`/api/registrations`, { method: "POST", body: formData })
     if (registration.ok) {
-      dispatch(authenticate())
+      dispatch(getOneEvent(event.id))
       dispatch(hideModal())
       return
     }
 
-    const reg = await registration.json()
-    console.log(reg.errors)
   }
 
   const delTicket = () => {
@@ -46,7 +42,6 @@ const BuyTickets = () => {
       <br></br>
       <h3>{`$${event.price}`}</h3>
       <br></br>
-
       <div className='tickets-selector'>
         <div className='tickets-title'>How many tickets would you like?</div>
         <div>{`$${total.toFixed(2)}`}</div>

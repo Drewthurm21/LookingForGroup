@@ -15,7 +15,7 @@ def events():
     return {'events': events}
 
 
-# return events hosted by user
+# return all events relevant to a user
 @event_routes.route('/user/<int:id>')
 def events_by_user(id):
     registered_events = []
@@ -30,7 +30,6 @@ def events_by_user(id):
     }
 
 
-# return a single event
 @event_routes.route('/<int:id>')
 def event(id):
     """
@@ -40,7 +39,6 @@ def event(id):
     return event.to_dict()
 
 
-# delete an event
 @event_routes.route('/<int:id>', methods=['DELETE'])
 def drop_event(id):
     """

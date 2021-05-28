@@ -63,6 +63,10 @@
   text-align: center;
 }
 
+.event-btns {
+  margin-top: 10px;
+}
+
 .event-btn1 {
   position:absolute;
   bottom: 10px;
@@ -80,6 +84,7 @@
 .select-tickets {
   display:flex;
 }
+
 
 .event-form,
 .login-form,
@@ -138,13 +143,18 @@
   color: #fff;
   justify-self: flex-start;
 }
-.event-form .event-input select {
+
+select option {
+  background-color:rgba(0, 0, 0, 0.5); 
+}
+
+select {
   align-self:flex-start;
   width: 285px;
   border: none;
   padding: 10px 20px;
-  border-radius: 35px;
-  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background: rgba(34, 34, 34, 0.05);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
