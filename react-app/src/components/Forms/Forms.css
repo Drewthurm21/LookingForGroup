@@ -10,7 +10,26 @@
   border: 1px solid white;
   border-radius: 6px;
   padding: 10px 20px;
-  border-radius: 35px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.demo-btn {
+  width: 83%;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -31,7 +50,7 @@
   border: 1px solid white;
   border-radius: 6px;
   padding: 10px 20px;
-  border-radius: 35px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -44,6 +63,12 @@
   cursor: pointer;
 }
 
+.login-btns {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .tickets-btn {
   margin: 5px;
   width: 45px;
@@ -51,7 +76,7 @@
   border: 1px solid white;
   border-radius: 6px;
   padding: 10px 20px;
-  border-radius: 35px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -66,6 +91,7 @@
 .event-btns {
   margin-top: 10px;
 }
+
 
 .event-btn1 {
   position:absolute;
@@ -97,7 +123,6 @@
   height: 100%;
   padding: 40px;
   box-sizing: border-box;
-  
 }
 
 .event-form h2,
@@ -153,7 +178,7 @@ select {
   width: 285px;
   border: none;
   padding: 10px 20px;
-  border-radius: 15px;
+  border-radius: 5px;
   background: rgba(34, 34, 34, 0.05);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -170,7 +195,7 @@ select {
   width: 90%;
   border: none;
   padding: 10px 20px;
-  border-radius: 35px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);

@@ -28,6 +28,9 @@ const NavBar = () => {
           Home
       </div>
       </NavLink>
+      <div>
+        <input type='search' placeholder='Search...'></input>
+      </div>
       {!user &&
         <>
           <div>

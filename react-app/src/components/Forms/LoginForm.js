@@ -68,7 +68,6 @@ const LoginForm = () => {
           <input
             name="email"
             type="text"
-            placeholder="Email"
             value={email}
             onChange={updateEmail}
           />
@@ -78,19 +77,16 @@ const LoginForm = () => {
           <input
             name="password"
             type="password"
-            placeholder="Password"
             value={password}
             onChange={updatePassword}
           />
         </div>
-        <div className='login-input'>
+        <div className='login-input login-btns'>
           <p className='login-btn' onClick={onLogin} type="submit">Login</p>
-        </div>
-        <div className='login-input'>
           <p className='login-btn' onClick={toSignup} type="submit">Sign up</p>
         </div>
         <div className='login-input'>
-          <p className='login-btn' onClick={demoLogin} type="submit">Demo Login</p>
+          <p className='demo-btn' onClick={demoLogin} type="submit"> Login as Demo user</p>
         </div>
       </form>
     </div>
