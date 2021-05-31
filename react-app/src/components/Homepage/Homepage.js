@@ -3,6 +3,7 @@ import { getAllEvents } from '../../store/events'
 import { useDispatch, useSelector } from 'react-redux'
 import CategoryCarousel from '../CategoryCarousel/CategoryCarousel'
 import EventCardMain from '../EventCardMain/EventCardMain'
+import NavBar from '../NavBar/NavBar';
 import './Homepage.css'
 
 const Homepage = () => {
@@ -22,6 +23,7 @@ const Homepage = () => {
 
   return events && (
     <div className='homepage-wrapper'>
+      <NavBar events={events} />
       <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/lfg-banner-gif.gif?raw=true' alt='logo'></img>
       <h1 className='carousel'>Feature Events!</h1>
       <CategoryCarousel />

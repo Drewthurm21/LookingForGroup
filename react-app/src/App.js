@@ -26,11 +26,11 @@ function App() {
           <SplashPage />
         </Route>
         <Route exact path='/home' >
-          <NavBar />
+          {/* <NavBar /> */}
           <Homepage />
         </Route>
         <Route exact path='/events/:id' >
-          <NavBar />
+          {/* <NavBar /> */}
           <SingleEventPage />
         </Route>
         <ProtectedRoute exact path='/profile' >

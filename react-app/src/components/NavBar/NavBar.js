@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { showModal, setCurrentModal } from '../../store/modal'
@@ -9,7 +9,10 @@ import './NavBar.css'
 
 const NavBar = () => {
   const dispatch = useDispatch()
+
   const user = useSelector(state => state.session.user)
+  const events = useSelector(state => state.events.events)
+  const [searchTerm, setSearchTerm] = useState('')
 
   const showLogin = () => {
     dispatch(setCurrentModal(LoginForm))
@@ -21,7 +24,13 @@ const NavBar = () => {
     dispatch(showModal())
   }
 
+
+  useEffect(() => {
+
+  }, [searchTerm])
+
   return (
+
     <nav className='navbar'>
       <NavLink to='/home' activeClassName='active'>
         <div className='login-btn'>
@@ -29,7 +38,20 @@ const NavBar = () => {
       </div>
       </NavLink>
       <div>
-        <input type='search' placeholder='Search...'></input>
+        <input className='search-bar' type='search' placeholder='Search...' onChange={(e) => setSearchTerm(e.target.value)}></input>
+        {events && events?.filter(event => {
+          if (searchTerm === '') {
+            return null
+          } else if (event.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return event
+          }
+        }).map(event => (
+          <NavLink to={`/events/${event.id}`} activeClassName='active'>
+            <div>
+              <p>{event.title}</p>
+            </div>
+          </NavLink>
+        ))}
       </div>
       {!user &&
         <>
