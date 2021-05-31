@@ -19,11 +19,10 @@ const EventCardLong = ({ event }) => {
             <div className='ecl-card-content'>
               <p className='ecl-title'>{event.title}</p>
               <p className='ecl-description'>{event.description}</p>
-              <div>{event.date.slice(0, 16)}</div>
             </div>
           </div>
         </NavLink>
-        <div onClick={() => console.log("yo")}>Cancel</div>
+        <div onClick={() => console.log("yo")}></div>
       </div>
     </div >
 
