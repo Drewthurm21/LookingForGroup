@@ -11,8 +11,8 @@ const NavBar = () => {
   const dispatch = useDispatch()
 
   const user = useSelector(state => state.session.user)
-  const events = useSelector(state => state.events.events)
-  const [searchTerm, setSearchTerm] = useState('')
+  // const events = useSelector(state => state.events.events)
+  // const [searchTerm, setSearchTerm] = useState('')
 
   const showLogin = () => {
     dispatch(setCurrentModal(LoginForm))
@@ -25,9 +25,9 @@ const NavBar = () => {
   }
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [searchTerm])
+  // }, [searchTerm])
 
   return (
 
