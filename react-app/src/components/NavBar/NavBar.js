@@ -35,9 +35,9 @@ const NavBar = () => {
       <NavLink to='/home' activeClassName='active'>
         <div className='login-btn'>
           Home
-      </div>
+        </div>
       </NavLink>
-      <div>
+      {/* <div>
         <input className='search-bar' type='search' placeholder='Search...' onChange={(e) => setSearchTerm(e.target.value)}></input>
         {events && events?.filter(event => {
           if (searchTerm === '') {
@@ -52,25 +52,25 @@ const NavBar = () => {
             </div>
           </NavLink>
         ))}
-      </div>
+      </div> */}
       {!user &&
         <>
           <div>
             <div className='login-btn' onClick={showLogin}>
               Login
-       </div>
+            </div>
           </div>
           <div>
             <div className='login-btn' onClick={showSignup}>
               Signup
-        </div>
+            </div>
           </div>
         </>}
       {user && <>
         <NavLink to='/profile' activeClassName='active'>
           <div className='login-btn'>
             Profile
-        </div>
+          </div>
         </NavLink>
         <div>
           <LogoutButton />
