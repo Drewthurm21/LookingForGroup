@@ -7,6 +7,7 @@ import './Modal.css'
 
 const Modal = () => {
   const dispatch = useDispatch()
+
   const mount = useSelector(state => state.modal.mount)
   const display = useSelector(state => state.modal.display)
   const Current = useSelector(state => state.modal.current)

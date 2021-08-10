@@ -22,10 +22,13 @@ export const setModalMount = mount => ({
   mount
 })
 
+const initialState = {
+  mount: null,
+  current: null,
+  display: false
+}
 
-export default function reducer(
-  state = { mount: null, current: null, display: false }, action
-) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SHOW:
       return { ...state, display: true }
