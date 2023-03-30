@@ -64,7 +64,7 @@
 }
 
 .login-btns {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -92,30 +92,28 @@
   margin-top: 10px;
 }
 
-
 .event-btn1 {
-  position:absolute;
+  position: absolute;
   bottom: 10px;
   left: 15px;
   z-index: 1;
 }
 
 .event-btn2 {
-  position:absolute;
+  position: absolute;
   bottom: 10px;
   right: 15px;
   z-index: 1;
 }
 
 .select-tickets {
-  display:flex;
+  display: flex;
 }
-
 
 .event-form,
 .login-form,
 .signup-form {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   position: relative;
@@ -136,7 +134,6 @@
   font-weight: 600;
   letter-spacing: 1px;
 }
-
 
 .event-form h2:before,
 .login-form h2:before,
@@ -170,11 +167,11 @@
 }
 
 select option {
-  background-color:rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 select {
-  align-self:flex-start;
+  align-self: flex-start;
   width: 285px;
   border: none;
   padding: 10px 20px;
@@ -246,6 +243,19 @@ select {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   animation: diag 5s linear infinite;
+  z-index: 9090;
+}
+
+.dsquare:hover {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(236, 89, 4, 0.781);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  z-index: 9090;
 }
 
 @keyframes vert {
@@ -277,7 +287,7 @@ select {
   width: 75px;
   z-index: -1;
   animation-delay: -1s;
-  background-image:linear-gradient(to top right, #FF488A, #FFB198);
+  background-image: linear-gradient(to top right, #ff488a, #ffb198);
 }
 .square-2 {
   top: 150px;
@@ -286,7 +296,7 @@ select {
   width: 100px;
   z-index: -1;
   animation-delay: -2s;
-  background-image:linear-gradient(to bottom left, #FFB198, #FF488A);
+  background-image: linear-gradient(to bottom left, #ffb198, #ff488a);
 }
 .square-3 {
   top: 285px;
@@ -294,7 +304,7 @@ select {
   height: 60px;
   width: 60px;
   animation-delay: -3s;
-  background-image:linear-gradient(to top left, #FF488A, #FFB198 );
+  background-image: linear-gradient(to top left, #ff488a, #ffb198);
 }
 .square-4 {
   top: -80px;
@@ -302,7 +312,7 @@ select {
   height: 40px;
   width: 40px;
   animation-delay: -4s;
-  background-image:linear-gradient(to top right, #FF488A, #FFB198);
+  background-image: linear-gradient(to top right, #ff488a, #ffb198);
 }
 .square-5 {
   top: 530px;
@@ -310,7 +320,7 @@ select {
   height: 55px;
   width: 55px;
   animation-delay: -5s;
-  background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+  background-image: linear-gradient(to bottom right, #ffb198, #ff488a);
 }
 
 .dsquare-1 {
@@ -319,7 +329,7 @@ select {
   height: 55px;
   width: 55px;
   animation-delay: -5s;
-  background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+  background-image: linear-gradient(to bottom right, #ffb198, #ff488a);
   z-index: -1;
 }
 .dsquare-2 {
@@ -328,7 +338,7 @@ select {
   height: 25px;
   width: 45px;
   animation-delay: -5s;
-  background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+  background-image: linear-gradient(to bottom right, #ffb198, #ff488a);
   z-index: -1;
 }
 .dsquare-3 {
@@ -337,7 +347,7 @@ select {
   height: 75px;
   width: 35px;
   animation-delay: -5s;
-  background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+  background-image: linear-gradient(to bottom right, #ffb198, #ff488a);
   z-index: -1;
 }
 .dsquare-4 {
@@ -346,6 +356,6 @@ select {
   height: 65px;
   width: 65px;
   animation-delay: -5s;
-  background-image:linear-gradient(to bottom right, #FFB198, #FF488A);
+  background-image: linear-gradient(to bottom right, #ffb198, #ff488a);
   z-index: -1;
 }

@@ -1,5 +1,5 @@
 .ecm-wrapper {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -11,60 +11,58 @@
 .ecm-wrapper .ecm-inner-card {
   color: white;
   justify-content: end;
-  position:relative;
+  position: relative;
   min-width: 300px;
   height: 365px;
   margin: 15px;
   border-radius: 12px;
-  box-shadow: 
-    inset 5px 5px 15px rgba(0,0,0,0.2),
-    inset -5px -5px 15px rgba(255,255,255,0.1),
-          5px 5px 15px rgba(0,0,0,0.2),
-          -5px -5px 15px rgba(255,255,255,0.1);
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.1);
 }
 
 .ecm-wrapper .ecm-inner-card .ecm-card-box {
   text-decoration: none;
-  display:flex;
-  flex-direction:column;
-  position:absolute;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
   overflow: hidden;
   top: 20px;
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: rgb(50, 50, 61, .2);
-  border: 2px solid  rgb(30, 30, 32, .8);
+  background: rgb(50, 50, 61, 0.2);
+  border: 2px solid rgb(30, 30, 32, 0.8);
   border-radius: 9px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   transition: 500ms ease-in-out;
 }
 
 .ecm-wrapper .ecm-inner-card .ecm-card-box:hover {
-  transform:translateY(-35px);
-  background: rgb(42,43,47, .5);
-  box-shadow: 0 40px 70px rgba(0,0,0,0.5);
+  transform: translateY(-35px);
+  background: rgb(42, 43, 47, 0.5);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
 
 .ecm-wrapper .ecm-inner-card .ecm-card-box .ecm-card-content {
   align-items: center;
-  text-align:center;
+  text-align: center;
 }
-
 
 .ecm-title {
-  font-size:larger;
+  font-size: larger;
 }
+
 .ecm-main-img {
-  width:97%;
-  height:200px;
+  width: 97%;
+  height: 200px;
   margin: 4px;
 }
 
 .ecm-price {
-  position:absolute;
+  position: absolute;
   bottom: 0;
-  right:3px;
+  right: 3px;
   margin: 2px 2px;
   color: rgba(144, 144, 144, 0);
   justify-self: center;
@@ -75,9 +73,9 @@
 }
 
 .event-card-link:hover h4 {
-  transform: scale(2); 
+  transform: scale(2);
   color: rgb(255, 255, 255);
-  right:30px;
+  right: 30px;
   bottom: 10px;
 }
 

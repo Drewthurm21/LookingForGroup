@@ -5,6 +5,18 @@ import CategoryCarousel from '../CategoryCarousel/CategoryCarousel'
 import EventCardMain from '../EventCardMain/EventCardMain'
 import NavBar from '../NavBar/NavBar';
 import './Homepage.css'
+let categoryNames = [
+  'Call of Duty',
+  'League of Legends',
+  'Minecraft',
+  'Valorant',
+  'Rocket League',
+  'Apex Legends',
+  'Among Us',
+  'Fortnight',
+  'Valheim',
+  'Battlefield'
+]
 
 const Homepage = () => {
   const dispatch = useDispatch()
@@ -21,9 +33,15 @@ const Homepage = () => {
 
   }, [category])
 
+  let handleCategoryChange = (e) => {
+    setCategory(+e.target.id)
+  }
+  let categoriesList = categoryNames.map((c, i) => (
+    <div id={i + 1} className='category-btn' onClick={handleCategoryChange}>{c}</div>
+  ))
+
   return events && (
     <div className='homepage-wrapper'>
-      <NavBar events={events} />
       <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/lfg-banner-gif.gif?raw=true' alt='logo'></img>
       <h1 className='carousel'>Feature Events!</h1>
       <CategoryCarousel />
@@ -32,16 +50,7 @@ const Homepage = () => {
           <img className='main-logo' src='https://github.com/Drewthurm21/LookingForGroup/blob/main/images/socialcasualsimple.PNG?raw=true' alt='logo'></img>
           <div className='sidebar-events'>
             <div className='homepage-sidebar'>
-              <div id='1' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Call of Duty</div>
-              <div id='2' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>League of Legends</div>
-              <div id='3' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Minecraft</div>
-              <div id='4' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Valorant</div>
-              <div id='5' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Rocket League</div>
-              <div id='6' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Apex Legends</div>
-              <div id='7' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Among Us</div>
-              <div id='8' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Fortnight</div>
-              <div id='9' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Valheim</div>
-              <div id='10' className='category-btn' onClick={e => setCategory(Number(e.target.id))}>Battlefield</div>
+              {categoriesList}
             </div>
             <div className='events-wrapper'>
               <div className='events-cards'>{
