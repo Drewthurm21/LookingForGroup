@@ -34,5 +34,5 @@ def seed_categories():
 
 
 def undo_categories():
-    db.session.execute('TRUNCATE categories RESTART IDENTITY CASCADE;')
+    db.session.execute('DELETE from categories;')
     db.session.commit()

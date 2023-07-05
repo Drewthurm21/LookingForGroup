@@ -42,5 +42,5 @@ def seed_registrations():
 
 
 def undo_registrations():
-    db.session.execute('TRUNCATE registrations RESTART IDENTITY CASCADE;')
+    db.session.execute('DELETE from registrations;')
     db.session.commit()

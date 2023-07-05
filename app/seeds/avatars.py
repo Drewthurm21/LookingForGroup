@@ -32,5 +32,5 @@ def seed_avatars():
 
 
 def undo_avatars():
-    db.session.execute('TRUNCATE avatars RESTART IDENTITY CASCADE;')
+    db.session.execute('DELETE from avatars;')
     db.session.commit()
